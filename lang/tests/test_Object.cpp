@@ -10,11 +10,11 @@ using namespace lang;
 
 static int test()
 {
-	Object a;
-	P(Object) b = new Object;
-	P(Object) c = new Object;
-	Object d;
-	return 0;
+   Object a;
+   P(Object) b = new Object;
+   P(Object) c = new Object;
+   Object d;
+   return 0;
 }
 
 //-----------------------------------------------------------------------------

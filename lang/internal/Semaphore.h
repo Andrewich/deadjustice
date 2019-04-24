@@ -13,24 +13,24 @@ namespace lang
 class Semaphore
 {
 public:
-	/** Constructs semaphore with specified initial value. */
-	Semaphore( int value=0 );
+   /** Constructs semaphore with specified initial value. */
+   Semaphore( int value=0 );
 
-	///
-	~Semaphore();
+   ///
+   ~Semaphore();
 
-	/** Waits for the semaphore (P primitive). */
-	void	wait();
+   /** Waits for the semaphore (P primitive). */
+   void  wait();
 
-	/** Signals the semaphore (V primitive). */
-	void	signal();
+   /** Signals the semaphore (V primitive). */
+   void signal();
 
 private:
-	class SemaphoreImpl;
-	SemaphoreImpl* m_this;
+   class SemaphoreImpl;
+   SemaphoreImpl* m_this;
 
-	Semaphore( const Semaphore& );
-	Semaphore& operator=( const Semaphore& );
+   Semaphore( const Semaphore& );
+   Semaphore& operator=( const Semaphore& );
 };
 
 

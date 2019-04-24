@@ -13,13 +13,13 @@ namespace lang
 class System
 {
 public:
-	/** Returns the current time in milliseconds. */
-	static long		currentTimeMillis();
+   /** Returns the current time in milliseconds. */
+   static long    currentTimeMillis();
 
 private:
-	System();
-	System( const System& );
-	System& operator=( const System& );
+   System();
+   System( const System& );
+   System& operator=( const System& );
 };
 
 

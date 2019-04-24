@@ -2,30 +2,34 @@
 #define _MEM_GROUP_H
 
 
+#ifdef WIN32
 #ifdef MEM_EXPORTS
-	#ifdef __cplusplus
-	#define MEM_API extern "C" __declspec(dllexport)
-	#else
-	#define MEM_API __declspec(dllexport)
-	#endif
+   #ifdef __cplusplus
+   #define MEM_API extern "C" __declspec(dllexport)
+   #else
+   #define MEM_API __declspec(dllexport)
+   #endif
 #else
-	#ifdef __cplusplus
-	#define MEM_API extern "C" __declspec(dllimport)
-	#else
-	#define MEM_API __declspec(dllimport)
-	#endif
+   #ifdef __cplusplus
+   #define MEM_API extern "C" __declspec(dllimport)
+   #else
+   #define MEM_API __declspec(dllimport)
+   #endif
 #endif // MEM_EXPORTS
+#else
+   #define MEM_API
+#endif // WIN32
 
 
 /** Debug memory flags. */
 enum DebugMemFlags
 {
-	/** Enable exit-time leak check. Default is enabled. */
-	DEBUGMEM_LEAKCHECK			= 1,
-	/** Enable alloc-time integrity check. Warning: Might slow down debug build a lot. */
-	DEBUGMEM_CHECKALWAYS		= 2,
-	/** Keeps list of freed memory blocks of each group. */
-	DEBUGMEM_LISTFREED			= 4,
+   /** Enable exit-time leak check. Default is enabled. */
+   DEBUGMEM_LEAKCHECK         = 1,
+   /** Enable alloc-time integrity check. Warning: Might slow down debug build a lot. */
+   DEBUGMEM_CHECKALWAYS    = 2,
+   /** Keeps list of freed memory blocks of each group. */
+   DEBUGMEM_LISTFREED         = 4,
 };
 
 
@@ -35,31 +39,31 @@ enum DebugMemFlags
  * Group id is optional user-defined integer which is not used by the library.
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void*	mem_Group_create( const char* groupname, int groupid );
+MEM_API void*  mem_Group_create( const char* groupname, int groupid );
 
 /** 
  * Releases group if no more references left. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void	mem_Group_release( void* group );
+MEM_API void   mem_Group_release( void* group );
 
 /** 
  * Copies group by reference. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void*	mem_Group_copy( void* group );
+MEM_API void*  mem_Group_copy( void* group );
 
 /** 
  * Allocates n byte memory block to the group. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void*	mem_Group_allocate( void* group, int n );
+MEM_API void*  mem_Group_allocate( void* group, int n );
 
 /** 
  * Frees n byte memory block from the group. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void	mem_Group_free( void* group, void* p, int n );
+MEM_API void   mem_Group_free( void* group, void* p, int n );
 
 /** 
  * Returns the first group. Group needs to be released after use
@@ -67,7 +71,7 @@ MEM_API void	mem_Group_free( void* group, void* p, int n );
  * This provides iteration safety (iterated groups are also referenced).
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void*	mem_Group_first();
+MEM_API void*  mem_Group_first();
 
 /** 
  * Returns the next group if any. Releases group passed in. 
@@ -75,37 +79,37 @@ MEM_API void*	mem_Group_first();
  * This provides iteration safety (iterated groups are also referenced).
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void*	mem_Group_next( void* group );
+MEM_API void*  mem_Group_next( void* group );
 
 /** 
  * Returns number of bytes allocated to the group. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_Group_bytesInUse( void* group );
+MEM_API int    mem_Group_bytesInUse( void* group );
 
 /** 
  * Returns number of memory blocks allocated to the group. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_Group_blocksInUse( void* group );
+MEM_API int    mem_Group_blocksInUse( void* group );
 
 /** 
  * Returns all-time total number of bytes allocated to the group. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_Group_bytesTotal( void* group );
+MEM_API int    mem_Group_bytesTotal( void* group );
 
 /** 
  * Returns all-time total number of memory blocks allocated to the group. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_Group_blocksTotal( void* group );
+MEM_API int    mem_Group_blocksTotal( void* group );
 
 /** 
  * Returns the name of the group. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API const char*	mem_Group_name( void* group );
+MEM_API const char*  mem_Group_name( void* group );
 
 /** 
  * Finds group by the address of freed memory block. 
@@ -113,38 +117,38 @@ MEM_API const char*	mem_Group_name( void* group );
  * @return 0 If group not found.
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void*	mem_Group_findByFreedBlock( void* p );
+MEM_API void*  mem_Group_findByFreedBlock( void* p );
 
 /** 
  * Returns total number of bytes used by all groups. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_bytesInUse();
+MEM_API int    mem_bytesInUse();
 
 /** 
  * Returns total number of blocks used by all groups. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_blocksInUse();
+MEM_API int    mem_blocksInUse();
 
 /** 
  * Sets debug memory allocation flags. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API void	mem_setFlags( int flags );
+MEM_API void   mem_setFlags( int flags );
 
 /** 
  * Returns debug memory allocation flags. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_flags();
+MEM_API int    mem_flags();
 
 /** 
  * Prints memory leaks if any. 
  * @return Number of blocks allocated.
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
-MEM_API int		mem_printAllocatedBlocks();
+MEM_API int    mem_printAllocatedBlocks();
 
 
 #if defined(NDEBUG) && !defined(MEM_EXPORTS)

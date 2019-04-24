@@ -12,7 +12,7 @@ namespace testref
 {
 
 
-class A : public Object
+class A : public lang::Object
 {
 };
 
@@ -31,13 +31,13 @@ class C : public A
 
 static int test()
 {
-	P(B) b = new B;
-	P(A) a = b;
-	assert( a.ptr() == b );
-	assert( !(a.ptr() != b) );
-	if ( a.ptr() == b )
-		a = new C;
-	return 0;
+   P(B) b = new B;
+   P(A) a = (P(A))b;
+   assert( a.ptr() == b );
+   assert( !(a.ptr() != b) );
+   if ( a.ptr() == b )
+      a = new C;
+   return 0;
 }
 
 //-----------------------------------------------------------------------------

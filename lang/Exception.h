@@ -14,14 +14,14 @@ namespace lang
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
 class Exception :
-	public Throwable
+   public Throwable
 {
 public:
-	/** Creates an exception with no error description. */
-	Exception() {}
+   /** Creates an exception with no error description. */
+   Exception() {}
 
-	/** Creates an exception with the specified error description. */
-	Exception( const lang::Format& msg )											: Throwable(msg) {}
+   /** Creates an exception with the specified error description. */
+   Exception( const lang::Format& msg )                                 : Throwable(msg) {}
 };
 
 

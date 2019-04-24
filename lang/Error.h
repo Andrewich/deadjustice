@@ -15,14 +15,14 @@ namespace lang
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
 class Error :
-	public Throwable
+   public Throwable
 {
 public:
-	/** Creates an error with no error description. */
-	Error() {}
+   /** Creates an error with no error description. */
+   Error() {}
 
-	/** Creates an error with the specified description. */
-	Error( const lang::Format& msg )												: Throwable(msg) {}
+   /** Creates an error with the specified description. */
+   Error( const lang::Format& msg )                                  : Throwable(msg) {}
 };
 
 

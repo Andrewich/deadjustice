@@ -21,51 +21,51 @@ namespace lang
 template <class T> class Ptr
 {
 public:
-	/** Null pointer. */
-	Ptr()																			{m_object = 0;}
+   /** Null pointer. */
+   Ptr() {m_object = 0;}
 
-	/** Releases reference to the object. */
-	~Ptr()																			{if ( m_object ) m_object->release();}
+   /** Releases reference to the object. */
+   ~Ptr() {if ( m_object ) m_object->release();}
 
-	/** Increments object reference count and stores the reference. */
-	Ptr( const Ptr<T>& other )														{T* obj = other.ptr(); if ( obj ) obj->addReference(); m_object = obj;}
+   /** Increments object reference count and stores the reference. */
+   Ptr( const Ptr<T>& other ) {T* obj = other.ptr(); if ( obj ) obj->addReference(); m_object = obj;}
 
-	/** Increments object reference count and stores the reference. */
-	Ptr( T* other )																	{if ( other ) other->addReference(); m_object = other;}
+   /** Increments object reference count and stores the reference. */
+   Ptr( T* other ) {if ( other ) other->addReference(); m_object = other;}
 
-	/** 
-	 * Releases old reference if any, increments other object reference 
-	 * count and stores the new reference. 
-	 */
-	Ptr<T>& operator=( const Ptr<T>& other )										{T* obj = other.ptr(); if ( obj ) obj->addReference(); if ( m_object ) m_object->release(); m_object = obj; return *this;}
+   /** 
+    * Releases old reference if any, increments other object reference 
+    * count and stores the new reference. 
+    */
+   Ptr& operator=( const Ptr<T>& other ) {T* obj = other.ptr(); if ( obj ) obj->addReference(); if ( m_object ) m_object->release(); m_object = obj; return *this;}
 
-	/** Returns true if the references point to the same unique object. */
-	bool	operator==( const T* other ) const										{return m_object == other;}
+   /** Returns true if the references point to the same unique object. */
+   bool  operator==( const T* other ) const {return m_object == other;}
 
-	/** Returns true if the references point to the same unique object. */
-	bool	operator==( const Ptr<T>& other ) const									{return m_object == other.m_object;}
-	
-	/** Returns true if the references point to different unique objects. */
-	bool	operator!=( const T* other ) const										{return m_object != other;}
+   /** Returns true if the references point to the same unique object. */
+   bool  operator==( const Ptr<T>& other ) const {return m_object == other.m_object;}
+   
+   /** Returns true if the references point to different unique objects. */
+   bool  operator!=( const T* other ) const {return m_object != other;}
 
-	/** Returns true if the references point to different unique objects. */
-	bool	operator!=( const Ptr<T>& other ) const									{return m_object != other.m_object;}
+   /** Returns true if the references point to different unique objects. */
+   bool  operator!=( const Ptr<T>& other ) const {return m_object != other.m_object;}
 
-	/** Access to the object. */
-	T&		operator*() const														{return *m_object;}
+   /** Access to the object. */
+   T&    operator*() const {return *m_object;}
 
-	/** Access to the object. */
-	T*		operator->() const														{return m_object;}
+   /** Access to the object. */
+   T*    operator->() const {return m_object;}
 
-	/** Access to the object. */
+   /** Access to the object. */
 
-	operator T*() const																{return m_object;}
+   operator T*() const {return m_object;}
 
-	/** Access to the object. */
-	T*		ptr() const																{return m_object;}
+   /** Access to the object. */
+   T*    ptr() const {return m_object;}
 
 private:
-	T* m_object;
+   T* m_object;
 };
 
 

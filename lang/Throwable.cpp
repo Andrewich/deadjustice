@@ -9,27 +9,27 @@ namespace lang
 
 Throwable::Throwable()
 {
-	setMessage( Format("") );
+   setMessage( Format("") );
 }
 
 Throwable::Throwable( const lang::Format& msg )
 {
-	setMessage( msg );
+   setMessage( msg );
 }
 
 void Throwable::setMessage( const lang::Format& msg )
 {
-	m_msg = msg;
+   m_msg = msg;
 }
 
 const lang::Format& Throwable::getMessage() const
 {
-	return m_msg;
+   return m_msg;
 }
 
 const String& Throwable::getStackTrace() const
 {
-	return m_trace;
+   return m_trace;
 }
 
 

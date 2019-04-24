@@ -26,37 +26,37 @@ namespace util
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
 class Random :
-	public lang::Object
+   public lang::Object
 {
 public:
-	/** Seeds RNG from system clock. */
-	Random();
+   /** Seeds RNG from system clock. */
+   Random();
 
-	/** Seeds RNG with explicit seed value. */
-	explicit Random( long seed );
+   /** Seeds RNG with explicit seed value. */
+   explicit Random( long seed );
 
-	/** Sets random number generator seed. */
-	void	setSeed( long seed );
+   /** Sets random number generator seed. */
+   void  setSeed( long seed );
 
-	/** Returns random int. */
-	int		nextInt();
+   /** Returns random int. */
+   int      nextInt();
 
-	/** Returns random long. */
-	long	nextLong();
-	
-	/** Returns random float in range [0,1). */
-	float	nextFloat();
+   /** Returns random long. */
+   long  nextLong();
+   
+   /** Returns random float in range [0,1). */
+   float nextFloat();
 
-	/** Returns random float in range [0,1). */
-	double	nextDouble();
+   /** Returns random float in range [0,1). */
+   double   nextDouble();
 
-	/** Returns random bool. */
-	bool	nextBoolean();
+   /** Returns random bool. */
+   bool  nextBoolean();
 
 private:
-	long m_seed;
+   long m_seed;
 
-	virtual int	next( int bits );
+   virtual int next( int bits );
 };
 
 

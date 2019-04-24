@@ -16,11 +16,11 @@ namespace lang
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
 class NumberFormatException :
-	public Exception
+   public Exception
 {
 public:
-	///
-	NumberFormatException( const lang::Format& msg )								: Exception(msg) {}
+   ///
+   NumberFormatException( const lang::Format& msg )                        : Exception(msg) {}
 };
 
 

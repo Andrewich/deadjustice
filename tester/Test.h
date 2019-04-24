@@ -20,33 +20,33 @@ namespace tester
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  */
 class Test :
-	public lang::Object
+   public lang::Object
 {
 public:
-	/**
-	 * Test function prototype.
-	 */
-	typedef int (*TestFunc)();
+   /**
+    * Test function prototype.
+    */
+   typedef int (*TestFunc)();
 
-	/**
-	 * Registers named test function.
-	 */
-	Test( TestFunc func, const char* filename );
+   /**
+    * Registers named test function.
+    */
+   Test( TestFunc func, const char* filename );
 
-	/** Returns number of registered tests. */
-	static int			tests();
+   /** Returns number of registered tests. */
+   static int        tests();
 
-	/** Returns ith registered test function. */
-	static TestFunc		getTestFunc( int i );
+   /** Returns ith registered test function. */
+   static TestFunc      getTestFunc( int i );
 
-	/** Returns ith registered test function filename. */
-	static const char*	getTestName( int i );
+   /** Returns ith registered test function filename. */
+   static const char*   getTestName( int i );
 
-	/** Returns ith registered test function path. */
-	static const char*	getTestPath( int i );
+   /** Returns ith registered test function path. */
+   static const char*   getTestPath( int i );
 
-	/** Swaps two tests. */
-	static void			swapTests( int i, int j );
+   /** Swaps two tests. */
+   static void       swapTests( int i, int j );
 };
 
 

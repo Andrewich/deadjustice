@@ -1,3 +1,7 @@
+.gitignore
+.vimrc
+SConstruct
+
 maxexport/maxexport.aps
 maxexport/lib/sgexport.dle
 pix/tests/data/DDSTex4.dds
@@ -58,3 +62,4 @@ ps/pstest/particles/images/smokepuff.tga
 ps/pstest/particles/images/blood_splat.tga
 ps/pstest/particles/images/flare_wallflare.tga
 io/tests/data/dataout_java.dat
+.sconsign.dblite
