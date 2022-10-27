@@ -1,0 +1,21 @@
+Import('env')
+
+platform = ARGUMENTS.get('OS', Platform())
+
+include = ['#/include', '#/src']
+libs = ['user32.lib', 'gdi32.lib']
+
+env.Append(CPPPATH=include)
+env.Append(LIBS=libs)
+
+objs = []
+for subdir in ['lang']:
+    o = env.SConscript('%s/SConscript' % subdir)
+    objs.append(o)
+
+#o = env.Object(['main.cpp'])
+#objs.append(o)
+
+#deadjustice = env.Program('deadjustice', objs)
+
+#Default(deadjustice)

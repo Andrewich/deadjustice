@@ -1,0 +1,12 @@
+Import('env')
+
+include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
+#libs = ['user32.lib', 'gdi32.lib']
+
+env.Append(CPPPATH=include)
+#env.Append(LIBS=libs)
+
+obj = env.Object([
+    'Long.cpp',
+    'Integer.cpp'])
+Return('obj')
