@@ -1,12 +1,30 @@
 Import('env')
 
 include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
-#libs = ['user32.lib', 'gdi32.lib']
 
 env.Append(CPPPATH=include)
-#env.Append(LIBS=libs)
 
-obj = env.Object([
+objs = []
+
+# Numeric classes
+objs.append([
     'Long.cpp',
-    'Integer.cpp'])
+    'Short.cpp',
+    'Integer.cpp',    
+    'Float.cpp',
+    'Double.cpp',    
+])
+
+# Char classes
+objs.append([
+    'Character.cpp',
+])
+
+# System classes
+objs.append([
+    'System.cpp',
+])
+
+
+obj = env.Object(objs)
 Return('obj')
