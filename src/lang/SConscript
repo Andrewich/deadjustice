@@ -3,6 +3,7 @@ Import('env')
 include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
 
 env.Append(CPPPATH=include)
+env.Append(CPPDEFINES = ['LANG_WIN32', 'WIN32']) 
 
 objs = []
 
@@ -12,17 +13,30 @@ objs.append([
     'Short.cpp',
     'Integer.cpp',    
     'Float.cpp',
-    'Double.cpp',    
+    'Double.cpp',
+    'Math.cpp',
 ])
 
 # Char classes
 objs.append([
     'Character.cpp',
+    'String.cpp',
+    'Formattable.cpp',
+    'Format.cpp',
+    'Debug.cpp',    
+    'UTFConverter.cpp',
 ])
 
 # System classes
-objs.append([
+objs.append([    
+    'internal/Semaphore.cpp',
+    'internal/Thread_impl.cpp',
+    'internal/Mutex.cpp',
+    'Object.cpp',
     'System.cpp',
+    'Thread.cpp',
+    'DynamicLinkLibrary.cpp',
+    'Throwable.cpp',
 ])
 
 

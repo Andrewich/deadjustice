@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------------
 
 // select atomic addition operation implementation
-#if defined(LANG_WIN32) && defined(_MSC_VER)
+#if defined(LANG_WIN32) && defined(_MSC_VER) && 0
 	#define ATOMICADD_INTELWIN32
 	#pragma warning( disable : 4035 )	// 'no return value'
 #elif defined(LANG_WIN32)
