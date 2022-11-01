@@ -25,6 +25,7 @@ objs.append([
     'Format.cpp',
     'Debug.cpp',    
     'UTFConverter.cpp',
+    'NumberReader.cpp',
 ])
 
 # System classes
