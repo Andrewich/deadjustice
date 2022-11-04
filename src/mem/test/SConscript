@@ -1,0 +1,15 @@
+Import('env')
+
+env.Append(CPPDEFINES = ['WIN32', '_CONSOLE', '_MBCS'])
+env.AppendUnique(LIBPATH = ['#lib'])
+env.AppendUnique(LIBS = ['langd', 'memd'])
+
+objs = []
+
+objs.append([
+    'main.cpp',
+])
+
+src = env.Program('tests_mem', objs)
+
+env.Install('#bin', source=src)

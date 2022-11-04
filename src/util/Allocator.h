@@ -2,8 +2,9 @@
 #define _MEM_ALLOCATOR_H
 
 
-#include <mem/Group.h>
 #include <new>
+#include <mem/Group.h>
+
 
 
 namespace util

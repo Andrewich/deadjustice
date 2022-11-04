@@ -1,2 +1,7 @@
 .sconsign.dblite
+bin/
+lib/
 build/
+.vscode/
+*.obj
+*.pdb

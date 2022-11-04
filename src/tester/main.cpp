@@ -11,7 +11,7 @@
 #endif
 
 #include <direct.h>
-#include "config.h"
+#include "internal/config.h"
 
 //-----------------------------------------------------------------------------
 
@@ -69,7 +69,7 @@ int runAll()
 }
 
 int main()
-{
+{	
 	int err = runAll();
 	lang::Thread::sleep( 1000 );
 

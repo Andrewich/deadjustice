@@ -2,7 +2,7 @@
 #include <mem/raw.h>
 #include <util/Allocator.h>
 #include <assert.h>
-#include <stdio.h>
+#include <cstdio>
 
 #if defined(_DEBUG) && defined(WIN32) && defined(_MSC_VER)
 	#define WIN32_LEAN_AND_MEAN

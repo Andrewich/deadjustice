@@ -1,0 +1,22 @@
+Import('env')
+
+env_mem = env.Clone(CXXFLAGS="-std=c11", CPPDEFINES = ['MEM_EXPORTS', 'WIN32'])
+
+objs = []
+objs.append([
+    'internal/error.c',
+    'internal/testAndSet.c',
+    'internal/Vector.c',
+    'raw.c',
+    'Group.c',
+])
+
+name_lib = 'memd'
+if int(ARGUMENTS.get('debug', 0)):
+    name_lib = 'mem' # Release version name
+
+src = env_mem.SharedLibrary(name_lib, objs)
+
+env_mem.Install('#lib', source=src)
+
+env.SConscript('tests/SConscript')

@@ -1,0 +1,24 @@
+Import('env')
+
+#include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
+
+#env.Append(CPPPATH=include)
+env.Append(CPPDEFINES = ['LANG_WIN32', 'WIN32']) 
+
+objs = []
+objs.append([
+    'Random.cpp',
+])
+
+name_lib = 'utild'
+if int(ARGUMENTS.get('debug', 0)):
+    name_lib = 'util' # Release version name
+
+src = env.StaticLibrary(name_lib, objs)
+
+env.Install('#lib', source=src)
+
+#env.SConscript('tests/SConscript')
+
+#obj = env.Object(objs)
+#Return('obj')

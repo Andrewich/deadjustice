@@ -1,8 +1,8 @@
 #include "Group.h"
-#include "Group_t.h"
-#include "GroupItem_t.h"
-#include "testAndSet.h"
-#include "error.h"
+#include "internal/Group_t.h"
+#include "internal/GroupItem_t.h"
+#include "internal/testAndSet.h"
+#include "internal/error.h"
 #include <string.h>
 #include <malloc.h>
 #include <assert.h>
@@ -17,7 +17,7 @@
 	#include <crtdbg.h>
 #endif
 
-#include "config.h"
+#include "internal/config.h"
 
 //-----------------------------------------------------------------------------
 

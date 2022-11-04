@@ -1,0 +1,23 @@
+Import('env')
+
+env.Append(CPPDEFINES = ['WIN32'])
+env.AppendUnique(LIBPATH = ['#lib'])
+env.AppendUnique(LIBS = ['langd', 'memd'])
+
+objs = []
+
+objs.append([
+    #'test_Object.cpp',
+    #'test_ProducerConsumer_Semaphore.cpp',
+    #'test_Ref.cpp',
+    'test_String.cpp',
+    #'test_StringFormat.cpp',
+    'test_System.cpp',
+    #'test_Thread.cpp',
+    '#src/tester/Test.cpp',
+    '#src/tester/main.cpp',
+])
+
+src = env.Program('tests_lang', objs)
+
+env.Install('#bin', source=src)

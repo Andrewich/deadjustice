@@ -37,7 +37,7 @@ static int test_String1()
 	assert( !strcmp(buf,"x.lua") );
 	int len = Format("1,2,{0}",3).format().getBytes( buf, sizeof(buf), "ASCII-7" );
 	assert( len == 5 );
-	assert( !strcmp(buf,"1,2,3") );
+	assert( !strcmp(buf,"1,2,3") );	
 	return 0;
 }
 

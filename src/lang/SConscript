@@ -1,8 +1,8 @@
 Import('env')
 
-include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
+#include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
 
-env.Append(CPPPATH=include)
+#env.Append(CPPPATH=include)
 env.Append(CPPDEFINES = ['LANG_WIN32', 'WIN32']) 
 
 objs = []
@@ -40,6 +40,15 @@ objs.append([
     'Throwable.cpp',
 ])
 
+name_lib = 'langd'
+if int(ARGUMENTS.get('debug', 0)):
+    name_lib = 'lang' # Release version name
 
-obj = env.Object(objs)
-Return('obj')
+src = env.StaticLibrary(name_lib, objs)
+
+env.Install('#lib', source=src)
+
+env.SConscript('tests/SConscript')
+
+#obj = env.Object(objs)
+#Return('obj')
