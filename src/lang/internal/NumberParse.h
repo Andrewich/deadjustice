@@ -3,8 +3,8 @@
 
 
 #include "Character.h"
-#include "NumberReader.h"
-#include "NumberFormatException.h"
+#include <lang/NumberReader.h>
+#include <lang/NumberFormatException.h>
 #include "config_inl.h"
 
 
