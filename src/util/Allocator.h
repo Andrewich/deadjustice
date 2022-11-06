@@ -1,11 +1,8 @@
 #ifndef _MEM_ALLOCATOR_H
 #define _MEM_ALLOCATOR_H
 
-
-#include <new>
 #include <mem/Group.h>
-
-
+#include <new>
 
 namespace util
 {

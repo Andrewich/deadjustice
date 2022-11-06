@@ -2,6 +2,13 @@
 bin/
 lib/
 build/
+.vs/
 .vscode/
 *.obj
 *.pdb
+*.tlog
+*.exe
+*.log
+*.idb
+*.ilk
+*.recipe
