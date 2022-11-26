@@ -10,6 +10,8 @@
 	#include <crtdbg.h>
 #endif
 
+#define BLOCK_HEADER_SIZE 32
+
 #include <mem/internal/config.h>
 
 //-----------------------------------------------------------------------------
@@ -37,7 +39,7 @@ int main()
 	int blocks = alloc.blocksInUse();
 	assert( blocks == 3 );
 	int bytes = alloc.bytesInUse();
-	assert( bytes == (int)sizeof(Int)*(1+1+10)+16*3 );
+	assert( bytes == (int)sizeof(Int)*(1+1+10)+BLOCK_HEADER_SIZE*3 );
 
 	printf( "Groups:\n" );
 	for ( void* group = mem_Group_first() ; group ; group = mem_Group_next(group) )
@@ -58,7 +60,7 @@ int main()
 	assert( blocks == 0 );
 	bytes = alloc.bytesInUse();
 	assert( bytes == 0 );
-	printf( "ok\n" );
+	printf( "\nok\n" );
 	return 0;
 }
 
