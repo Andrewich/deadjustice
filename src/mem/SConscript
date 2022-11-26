@@ -1,6 +1,8 @@
 Import('env')
 
-env_mem = env.Clone(CXXFLAGS="-std=c11", CPPDEFINES = ['MEM_EXPORTS', 'WIN32'])
+env_mem = env.Clone(
+    CXXFLAGS= ['/std:c11', '/W2', '/Zc:wchar_t', '/Gm-'], 
+    CPPDEFINES = ['MEM_EXPORTS', 'WIN32', 'DEBUGMEM_WIN32', '_WINDLL', '_MBCS', '_CRT_SECURE_NO_WARNINGS'])
 
 objs = []
 objs.append([
@@ -19,4 +21,4 @@ src = env_mem.SharedLibrary(name_lib, objs)
 
 env_mem.Install('#lib', source=src)
 
-env.SConscript('tests/SConscript')
+env.SConscript('test/SConscript')

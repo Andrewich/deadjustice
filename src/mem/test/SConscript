@@ -10,6 +10,6 @@ objs.append([
     'main.cpp',
 ])
 
-src = env.Program('tests_mem', objs)
+src = env.Program('test_mem', objs)
 
 env.Install('#bin', source=src)

@@ -1,4 +1,4 @@
-env = Environment()
+env = Environment(TARGET_ARCH='x86')
 
 if ARGUMENTS.get('VERBOSE') != '1':
     '''scons VERBOSE=1'''
@@ -7,7 +7,7 @@ if ARGUMENTS.get('VERBOSE') != '1':
     env['LINKCOMSTR'] = "Linking $TARGET"
 
 if env['PLATFORM'] == 'win32':
-    env.AppendUnique(CXXFLAGS = "/std:c++14")
+    env.AppendUnique(CXXFLAGS = ['/std:c++14'])
 
 # Add the Debug Flags if debug=1 is specified on the command line, this tends to be compiler specific
 if int(ARGUMENTS.get('debug', 0)):
@@ -26,8 +26,6 @@ print("Building: " + variant)
 
 Export('env')
 
-env.SConscript('src/SConscript', variant_dir='build/$PLATFORM')
-
 if Execute(Mkdir('bin')):
     # A problem occurred while making the directory.
     Exit(1)
@@ -35,5 +33,7 @@ if Execute(Mkdir('bin')):
 if Execute(Mkdir('lib')):
     # A problem occurred while making the directory.
     Exit(1)
+
+env.SConscript('src/SConscript', variant_dir='build/$PLATFORM')
     
 #env.Install('bin', main)
