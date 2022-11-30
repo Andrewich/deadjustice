@@ -1,0 +1,26 @@
+Import('env')
+
+#include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
+
+#env.Append(CPPPATH=include)
+env.Append(CPPDEFINES = ['WIN32', '_LIB', '_MBCS']) 
+
+objs = []
+objs.append([
+    'internal/StdAfx.cpp',
+    'Window.cpp',
+    'FrameWindow.cpp'
+])
+
+name_lib = 'wind'
+if int(ARGUMENTS.get('debug', 0)):
+    name_lib = 'win' # Release version name
+
+src = env.StaticLibrary(name_lib, objs)
+
+env.Install('#lib', source=src)
+
+env.SConscript('tests/SConscript')
+
+#obj = env.Object(objs)
+#Return('obj')

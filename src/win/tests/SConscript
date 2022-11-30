@@ -1,0 +1,15 @@
+Import('env')
+
+env.Append(CPPDEFINES = ['WIN32'])
+env.AppendUnique(LIBPATH = ['#lib'])
+env.AppendUnique(LIBS = ['wind', 'langd', 'memd', 'user32', 'gdi32'])
+
+objs = []
+
+objs.append([
+    'test_FrameWindow.cpp'    
+])
+
+src = env.Program('tests_win', objs)
+
+env.Install('#bin', source=src)
