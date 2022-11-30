@@ -1,0 +1,39 @@
+Import('env')
+
+env.Append(CPPDEFINES = ['_LIB', 'WIN32', '_ALLOW_KEYWORD_MACROS']) 
+
+objs = [
+    'internal/StdioEx.cpp',
+    'Reader.cpp',
+    'Writer.cpp',
+    'OutputStream.cpp',
+    'InputStream.cpp',
+    'OutputStreamWriter.cpp',
+    'InputStreamReader.cpp',
+    'FilterOutputStream.cpp',
+    'FilterInputStream.cpp',
+    'FileOutputStream.cpp',
+    'FileInputStream.cpp',
+    'File.cpp',
+    'DirectoryInputStreamArchive.cpp',
+    'DataOutputStream.cpp',
+    'DataInputStream.cpp',
+    'CommandReader.cpp',
+    'ChunkOutputStream.cpp',
+    'ChunkInputStream.cpp',
+    'ByteArrayOutputStream.cpp',
+    'ByteArrayInputStream.cpp'
+]
+
+name_lib = 'iod'
+if int(ARGUMENTS.get('debug', 0)):
+    name_lib = 'io' # Release version name
+
+src = env.StaticLibrary(name_lib, objs)
+
+env.Install('#lib', source=src)
+
+env.SConscript('tests/SConscript')
+
+#obj = env.Object(objs)
+#Return('obj')

@@ -1,0 +1,22 @@
+Import('env')
+
+env.Append(CPPDEFINES = ['WIN32'])
+env.AppendUnique(LIBPATH = ['#lib'])
+#env.AppendUnique(LIBS = ['langd', 'memd', 'utild', 'iod'])
+env.AppendUnique(LIBS = ['memd', 'langd', 'iod'])
+
+objs = []
+
+objs.append([    
+    'test_File.cpp',
+    'test_Chunks.cpp',
+    'test_DataStreams1.cpp',
+    '#src/tester/Test.cpp',
+    '#src/tester/main.cpp'
+])
+
+Command("#build/$PLATFORM/io/tests/data/dataout_java.dat", "#src/io/tests/data/dataout_java.dat", Copy("$TARGET", "$SOURCE"))
+
+src = env.Program('tests_io', objs)
+
+env.Install('#bin', source=src)

@@ -2,13 +2,13 @@ Import('env')
 
 env.Append(CPPDEFINES = ['WIN32'])
 env.AppendUnique(LIBPATH = ['#lib'])
-env.AppendUnique(LIBS = ['langd', 'memd'])
+env.AppendUnique(LIBS = ['langd', 'memd', 'utild'])
 
 objs = []
 
 objs.append([
     'test_Object.cpp',
-    #'test_ProducerConsumer_Semaphore.cpp',
+    'test_ProducerConsumer_Semaphore.cpp',
     'test_Ref.cpp',
     'test_String.cpp',
     'test_StringFormat.cpp',

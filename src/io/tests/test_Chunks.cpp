@@ -88,8 +88,8 @@ static void readTest( const char* filename )
 
 static int test()
 {
-	writeTest( "/tmp/out/chunks.dat" );
-	readTest( "/tmp/out/chunks.dat" );
+	writeTest( "chunks.dat" );
+	readTest( "chunks.dat" );
 	return 0;
 }
 

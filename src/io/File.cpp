@@ -1,6 +1,7 @@
 #include "File.h"
 #include "config.h"
 #include "StdioEx.h"
+#include <cctype>
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>

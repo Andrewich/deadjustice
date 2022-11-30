@@ -75,7 +75,7 @@ static void readTest( const char* filename )
 	assert( byteVar == 0x66 );
 	
 	name = din->readUTF();
-	lang::Char charVar = din->readChar();
+	lang::Char charVar = din->readChar();	
 	assert( name == "Char" );
 	assert( charVar == lang::Char(0xC4) );
 	
@@ -125,8 +125,8 @@ static void readTest( const char* filename )
 
 static int test_DataStreams1()
 {
-	writeTest( "/tmp/out/dataout.dat" );
-	readTest( "/tmp/out/dataout.dat" );
+	writeTest( "dataout.dat" );
+	readTest( "dataout.dat" );
 	readTest( "data/dataout_java.dat" );
 	return 0;
 }
