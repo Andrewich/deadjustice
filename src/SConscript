@@ -15,7 +15,7 @@ env.Append(CPPPATH=include)
 #    objs.append(o)
 
 # Build SharedLibrary and StaticLibrary
-for subdir in ['mem', 'lang']:
+for subdir in ['mem', 'lang', 'util', 'win', 'io', 'math']:
     env.SConscript('%s/SConscript' % subdir)
 
 #o = env.Object(['main.cpp'])

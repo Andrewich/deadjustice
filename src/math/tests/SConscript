@@ -1,0 +1,19 @@
+Import('env')
+
+env.Append(CPPDEFINES = ['WIN32'])
+env.AppendUnique(LIBPATH = ['#lib'])
+env.AppendUnique(LIBS = ['langd', 'memd', 'mathd']) #, 'utild'])
+
+objs = []
+objs.append([
+    'test_Vector2.cpp',
+    'test_Quat.cpp',
+    'test_Matrix4x4.cpp',
+    'test_Integration.cpp',
+    '#src/tester/Test.cpp',
+    '#src/tester/main.cpp'
+])
+
+src = env.Program('tests_math', objs)
+
+env.Install('#bin', source=src)

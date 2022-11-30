@@ -1,0 +1,36 @@
+Import('env')
+
+#include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
+
+#env.Append(CPPPATH=include)
+env.Append(CPPDEFINES = ['WIN32', '_LIB', '_MBCS']) 
+
+objs = []
+objs.append([
+    'Vector3.cpp',
+    'MatrixMxN.cpp',
+    'Matrix4x4.cpp',
+    'Matrix3x3.cpp',
+    'Quaternion.cpp',
+    'Intersection.cpp',
+    'OBBox.cpp',
+    'OBBoxBuilder.cpp',
+    'Noise.cpp',
+    'EigenUtil.cpp',
+    'BSphere.cpp',
+    'BSphereBuilder.cpp',
+    'BezierUtilVector3.cpp'
+])
+
+name_lib = 'mathd'
+if int(ARGUMENTS.get('debug', 0)):
+    name_lib = 'math' # Release version name
+
+src = env.StaticLibrary(name_lib, objs)
+
+env.Install('#lib', source=src)
+
+env.SConscript('tests/SConscript')
+
+#obj = env.Object(objs)
+#Return('obj')
