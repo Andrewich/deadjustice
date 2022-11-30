@@ -3,11 +3,14 @@ Import('env')
 #include = ['#/include', '#/src', '#/src/config/msvc6', 'internal']
 
 #env.Append(CPPPATH=include)
-env.Append(CPPDEFINES = ['LANG_WIN32', 'WIN32']) 
+env.Append(CPPDEFINES = ['LANG_WIN32', 'WIN32', '_LIB', '_MBCS']) 
 
 objs = []
 objs.append([
     'Random.cpp',
+    'Properties.cpp',
+    'Hashtable.cpp',
+    'ExProperties.cpp'
 ])
 
 name_lib = 'utild'

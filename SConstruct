@@ -34,6 +34,10 @@ if Execute(Mkdir('lib')):
     # A problem occurred while making the directory.
     Exit(1)
 
+if Execute(Mkdir('tmp')):
+    # A problem occurred while making the directory.
+    Exit(1)
+
 env.SConscript('src/SConscript', variant_dir='build/$PLATFORM')
     
 #env.Install('bin', main)
