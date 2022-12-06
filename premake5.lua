@@ -116,12 +116,8 @@ project "gd"
 
 project "gd_dx9"
     kind "SharedLib"
-    location "build/gd_dx9"
-    filter "action:vs*"  -- for Visual Studio actions
-        pchheader "StdAfx.h"
-        pchsource "src/gc/gd_dx9/StdAfx.cpp"
-    includedirs { "$(DXSDK_DIR)Include", "src/gd/gd_dx9", "src/gd/gd_dx_common" }
-    forceincludes  { "StdAfx.h" }
+    location "build/gd_dx9"    
+    includedirs { "$(DXSDK_DIR)Include", "src/gd/gd_dx9", "src/gd/gd_dx_common" }    
     files { "src/gd/gd_dx9/*.cpp", "src/gd/gd_dx9/*.h", "src/gd/gd_dx_common/*.cpp", "src/gd/gd_dx_common/*.h" }    
     defines { "GD_DX9_EXPORTS" }
     libdirs { "$(DXSDK_DIR)Lib/x86", "lib/debug" }        
@@ -131,11 +127,6 @@ project "gd_dx9"
         "d3dx9",
         "d3d9"
     }
-
---project "fsm"
---    kind "StaticLib"
---    location "build/fsm"    
---    files { "src/fsm/*.cpp", "src/fsm/*.h" }
 
 project "tester"
     kind "ConsoleApp"
