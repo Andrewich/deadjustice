@@ -90,6 +90,48 @@ project "bsp"
     includedirs { "src/bsp/internal" }
     files { "src/bsp/internal/*.h", "src/bsp/*.cpp", "src/bsp/*.h" }
 
+project "id"
+    kind "StaticLib"
+    location "build/id"
+    files { "src/id/*.h" }
+
+project "id_dx8"
+    kind "SharedLib"
+    location "build/id_dx8"
+    includedirs { "src/id/id_dx8" }
+    files { "src/id/id_dx8/*.cpp", "src/id/id_dx8/*.h" }
+    defines { "ID_DX8_EXPORTS" }
+    libdirs { "lib/debug" }
+    dependson { "mem", "lang", "util", "io" }
+    links {
+        "memd",        
+        "dxguid",
+        "dinput8"
+    }
+
+project "gd"
+    kind "StaticLib"
+    location "build/gd"
+    files { "src/gd/*.h" }
+
+project "gd_dx9"
+    kind "SharedLib"
+    location "build/gd_dx9"
+    filter "action:vs*"  -- for Visual Studio actions
+        pchheader "StdAfx.h"
+        pchsource "src/gc/gd_dx9/StdAfx.cpp"
+    includedirs { "$(DXSDK_DIR)Include", "src/gd/gd_dx9", "src/gd/gd_dx_common" }
+    forceincludes  { "StdAfx.h" }
+    files { "src/gd/gd_dx9/*.cpp", "src/gd/gd_dx9/*.h", "src/gd/gd_dx_common/*.cpp", "src/gd/gd_dx_common/*.h" }    
+    defines { "GD_DX9_EXPORTS" }
+    libdirs { "$(DXSDK_DIR)Lib/x86", "lib/debug" }        
+    dependson { "mem" }
+    links {
+        "memd",        
+        "d3dx9",
+        "d3d9"
+    }
+
 --project "fsm"
 --    kind "StaticLib"
 --    location "build/fsm"    
@@ -111,9 +153,9 @@ project "tester"
     }
     libdirs { "lib/debug" }
     dependson { "mem", "lang", "util", "io" }
-    links {        
+    links {
         "memd",
         "langd",
         "iod",
-        "utild"        
+        "utild"
     }

@@ -14,7 +14,7 @@
 #include <gd/Errors.h>
 #include <assert.h>
 #include <memory.h>
-#include <dxerr8.h>
+#include <dxerr.h>
 #include "config.h"
 
 //-----------------------------------------------------------------------------

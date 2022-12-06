@@ -271,7 +271,7 @@ void Dx9Effect::apply( int pass )
 {
 	assert( m_fx );
 
-	HRESULT hr = m_fx->Pass( pass );
+	HRESULT hr = m_fx->BeginPass( pass );
 	if ( hr != D3D_OK )
 		error( "Dx9Effect.end() failed: %s", toString(hr) );
 }
@@ -280,7 +280,7 @@ void Dx9Effect::end()
 {
 	assert( m_fx );
 
-	HRESULT hr = m_fx->End();
+	HRESULT hr = m_fx->EndPass();
 	if ( hr != D3D_OK )
 		error( "Dx9Effect.end() failed: %s", toString(hr) );
 

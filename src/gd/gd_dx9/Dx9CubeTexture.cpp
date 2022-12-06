@@ -102,7 +102,7 @@ void Dx9CubeTexture::load( GraphicsDevice* device )
 
 			if ( format == D3DFMT_UNKNOWN )
 			{
-				error( "Failed to create texture: width=%i, height=%i, levels=%i, usage=0x%X, format=%s, pool=0x%X.", width, height, levels, usage, toString(originalFormat), pool );
+				error( "Failed to create texture: width=%i, height=%i, levels=%i, usage=0x%X, format=%s, pool=0x%X.", width(), height, levels, usage, toString(originalFormat), pool );
 				return;
 			}
 			
