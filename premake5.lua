@@ -35,8 +35,7 @@ workspace "DeadJustice"
         targetdir "lib/release"
         defines { "NDEBUG" }
         optimize "Full"
-        symbols "Off"    
-        
+        symbols "Off"
 
 project "lang"
     kind "StaticLib"
@@ -90,6 +89,12 @@ project "bsp"
     includedirs { "src/bsp/internal" }
     files { "src/bsp/internal/*.h", "src/bsp/*.cpp", "src/bsp/*.h" }
 
+project "math"
+    kind "StaticLib"
+    location "build/math"
+    includedirs { "src/math/internal" }
+    files { "src/math/internal/*.h", "src/math/*.cpp", "src/math/*.h" }
+
 project "id"
     kind "StaticLib"
     location "build/id"
@@ -109,6 +114,19 @@ project "id_dx8"
         "dinput8"
     }
 
+project "libjpeg"
+    kind "StaticLib"
+    language "C"
+    location "build/libjpeg"
+    includedirs { "src/external/libjpeg" }
+    files { "src/external/libjpeg/*.c", "src/external/libjpeg/*.h" }
+
+project "pix"
+    kind "StaticLib"
+    location "build/pix"
+    includedirs { "src/pix/internal", "src/pix", "src/external/libjpeg" }
+    files { "src/pix/internal/*.h", "src/pix/internal/*.cpp", "src/pix/*.cpp", "src/pix/*.h" }    
+
 project "gd"
     kind "StaticLib"
     location "build/gd"
@@ -121,9 +139,11 @@ project "gd_dx9"
     files { "src/gd/gd_dx9/*.cpp", "src/gd/gd_dx9/*.h", "src/gd/gd_dx_common/*.cpp", "src/gd/gd_dx_common/*.h" }    
     defines { "GD_DX9_EXPORTS" }
     libdirs { "$(DXSDK_DIR)Lib/x86", "lib/debug" }        
-    dependson { "mem" }
+    dependson { "mem", "math", "pix" }
     links {
-        "memd",        
+        "memd",
+        "mathd",
+        "pixd",
         "d3dx9",
         "d3d9"
     }

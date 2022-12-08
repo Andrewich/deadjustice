@@ -1,0 +1,4 @@
+[submodule "src/external/libjpeg"]
+	path = src/external/libjpeg
+	url = https://github.com/Andrewich/libjpeg.git
+	branch = v6b
