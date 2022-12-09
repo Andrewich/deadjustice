@@ -160,11 +160,6 @@ project "script"
     location "build/script"
     includedirs { "src/script/internal", "src/external/lua/include" }
     files { "src/script/internal/*.h", "src/script/internal/*.cpp", "src/script/*.cpp", "src/script/*.h" }
-    dependson { "mem", "lua" }
-    links {
-        "memd",
-        "luad"
-    }
 
 project "tester"
     kind "ConsoleApp"
