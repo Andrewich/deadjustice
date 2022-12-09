@@ -148,6 +148,13 @@ project "gd_dx9"
         "d3d9"
     }
 
+project "lua"
+    kind "StaticLib"
+    language "C"
+    location "build/lua"
+    includedirs { "src/external/lua/src", "src/external/lua/include" }
+    files { "src/external/lua/src/*.c", "src/external/lua/src/*.h", "src/external/lua/src/lib/*.c", "src/external/lua/include/*.h" }
+
 project "tester"
     kind "ConsoleApp"
     location "build/tester"
