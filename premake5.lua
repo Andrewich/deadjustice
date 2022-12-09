@@ -125,7 +125,7 @@ project "pix"
     kind "StaticLib"
     location "build/pix"
     includedirs { "src/pix/internal", "src/pix", "src/external/libjpeg" }
-    files { "src/pix/internal/*.h", "src/pix/internal/*.cpp", "src/pix/*.cpp", "src/pix/*.h" }    
+    files { "src/pix/internal/*.h", "src/pix/internal/*.cpp", "src/pix/*.cpp", "src/pix/*.h" }
 
 project "gd"
     kind "StaticLib"
@@ -154,6 +154,17 @@ project "lua"
     location "build/lua"
     includedirs { "src/external/lua/src", "src/external/lua/include" }
     files { "src/external/lua/src/*.c", "src/external/lua/src/*.h", "src/external/lua/src/lib/*.c", "src/external/lua/include/*.h" }
+
+project "script"
+    kind "StaticLib"
+    location "build/script"
+    includedirs { "src/script/internal", "src/external/lua/include" }
+    files { "src/script/internal/*.h", "src/script/internal/*.cpp", "src/script/*.cpp", "src/script/*.h" }
+    dependson { "mem", "lua" }
+    links {
+        "memd",
+        "luad"
+    }
 
 project "tester"
     kind "ConsoleApp"

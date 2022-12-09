@@ -5,3 +5,4 @@
 [submodule "src/external/lua"]
 	path = src/external/lua
 	url = https://github.com/Andrewich/lua.git
+	branch = 4.0.1	
