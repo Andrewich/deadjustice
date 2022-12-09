@@ -13,7 +13,7 @@
 #include <lua.h>
 #include "config.h"
 
-//#define LUA_DEBUG
+//#define _DEBUG
 
 //-----------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ namespace script
 {
 
 
-#ifdef LUA_DEBUG
+#ifdef _DEBUG
 static FILE* s_log = 0;
 
 static void linehook( lua_State*, lua_Debug* ar )
@@ -95,7 +95,7 @@ VM::VM( int stackSize )
 	lua_unref( m_lua, oldGlobals );
 
 	// set line hook
-	#ifdef LUA_DEBUG
+	#ifdef _DEBUG
 	lua_setlinehook( m_lua, linehook );
 	lua_setcallhook( m_lua, callhook );
 	#endif
