@@ -2,7 +2,6 @@
 #include <lang/Array.h>
 #include <lang/Exception.h>
 #include <assert.h>
-#include <string.h>
 #include "config.h"
 
 #ifdef WIN32

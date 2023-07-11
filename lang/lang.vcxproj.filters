@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{02838a2e-fdcc-4ddf-813b-2e2e5c145866}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{04171cca-1e01-49e1-bb5f-1fe9eefd73bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\internal">
+      <UniqueIdentifier>{a89b4bea-1dfc-415d-9089-e43122e20308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\internal">
+      <UniqueIdentifier>{5d8125d6-755a-4d6f-8d80-46dd0f10f813}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Character.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Double.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicLinkLibrary.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Float.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Format.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Formattable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Integer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Long.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberReader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Short.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Throwable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="UTFConverter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Mutex.cpp">
+      <Filter>src\internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Semaphore.cpp">
+      <Filter>src\internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Thread_impl.cpp">
+      <Filter>src\internal</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="internal\config.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\config_inl.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Mutex.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\NumberParse.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Semaphore.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Thread_impl.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Char.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Double.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicLinkLibrary.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Float.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Format.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Formattable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Integer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Long.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberFormatException.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberReader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Ptr.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Short.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Throwable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="UTF16.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="UTFConverter.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

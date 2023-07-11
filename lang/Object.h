@@ -2,8 +2,6 @@
 #define _LANG_OBJECT_H
 
 
-#include <stddef.h>
-
 #include <lang/Ptr.h>
 
 
@@ -63,16 +61,16 @@ public:
 	virtual ~Object();
 
 	/** Allocates an Object. */
-	void* operator new( size_t n );
+	void*			operator new( unsigned n );
 
 	/** Allocates an Object with debug information. */
-	void* operator new( size_t n, const char* file, int line );
+	void*			operator new( unsigned n, const char* file, int line );
 
 	/** Frees the Object. */
-	void operator delete( void* p );
+	void			operator delete( void* p );
 
 	/** Frees the Object with debug information. */
-	void operator delete( void* p, const char* file, int line );
+	void			operator delete( void* p, const char* file, int line );
 
 	/** Returns this Object. */
 	Object&			operator=( const Object& );
@@ -127,8 +125,8 @@ private:
 
 // Debug global memory allocation
 #ifdef _DEBUG
-void*	operator new( size_t n );
-void*	operator new( size_t n, const char* file, int line );
+void*	operator new( unsigned n );
+void*	operator new( unsigned n, const char* file, int line );
 void	operator delete( void* p );
 void	operator delete( void* p, const char* file, int line );
 #define LANG_DEBUG_NEW new(__FILE__,__LINE__)

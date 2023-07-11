@@ -57,7 +57,7 @@ public:
 
 	int			put( char ch );
 
-	double			value() const;
+	T			value() const;
 	bool		valid() const														{return m_valid;}
 
 private:
@@ -81,11 +81,11 @@ private:
 
 	bool		m_valid;
 	State		m_state;
-	double			m_sign;
-	double			m_value;
-	double			m_fractionScale;
-	double			m_expSign;
-	double			m_expValue;
+	T			m_sign;
+	T			m_value;
+	T			m_fractionScale;
+	T			m_expSign;
+	T			m_expValue;
 };
 
 // NumberReader specialization for float.
@@ -96,7 +96,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	float			value() const														{return (float)m_impl.value();}
+	T			value() const														{return (T)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -111,7 +111,7 @@ public:
 
 	int			put( char ch );
 
-	long			value() const;
+	T			value() const;
 	bool		valid() const														{return m_valid;}
 
 private:
@@ -127,8 +127,8 @@ private:
 
 	bool		m_valid;
 	State		m_state;
-	long			m_sign;
-	long			m_value;
+	T			m_sign;
+	T			m_value;
 };
 
 // NumberReader specialization for int.
@@ -139,7 +139,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	int			value() const														{return (int)m_impl.value();}
+	T			value() const														{return (T)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -154,7 +154,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	short			value() const														{return (short)m_impl.value();}
+	T			value() const														{return (T)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -169,7 +169,7 @@ public:
 
 	int			put( char ch );
 
-	unsigned long			value() const;
+	T			value() const;
 	bool		valid() const														{return m_valid;}
 
 private:
@@ -183,7 +183,7 @@ private:
 
 	bool		m_valid;
 	State		m_state;
-	unsigned long			m_value;
+	T			m_value;
 };
 
 // NumberReader specialization for unsigned int.
@@ -194,7 +194,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	unsigned			value() const														{return (unsigned)m_impl.value();}
+	T			value() const														{return (T)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -209,7 +209,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	unsigned short			value() const														{return (unsigned short)m_impl.value();}
+	T			value() const														{return (T)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:

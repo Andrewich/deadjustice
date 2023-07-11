@@ -117,8 +117,9 @@ void Mutex::incrementRC( long* value )
 	#elif defined(ATOMICADD_PTHREADS)
 
 		pthread_mutex_lock( &s_refCountMutex );
-		long v = ++*value;
+		long v = ++*x;
 		pthread_mutex_unlock( &s_refCountMutex );
+		return v;
 
 	#endif
 }
@@ -142,7 +143,7 @@ long Mutex::decrementRC( long* value )
 	#elif defined(ATOMICADD_PTHREADS)
 
 		pthread_mutex_lock( &s_refCountMutex );
-		long v = --*value;
+		long v = --*x;
 		pthread_mutex_unlock( &s_refCountMutex );
 		return v;
 

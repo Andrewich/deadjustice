@@ -86,12 +86,12 @@ void Object::release()
 #undef new
 #endif
 
-void* Object::operator new( size_t n )
+void* Object::operator new( unsigned n )
 {
 	return mem_allocate( n, __FILE__, __LINE__ );
 }
 
-void* Object::operator new( size_t n, const char* file, int line )
+void* Object::operator new( unsigned n, const char* file, int line )
 {
 	return mem_allocate( n, file, line );
 }
@@ -112,7 +112,7 @@ void Object::operator delete( void* p, const char*, int )
 
 // Global memory allocation (_DEBUG only)
 #ifdef _DEBUG
-void* operator new( size_t n )
+void* operator new( unsigned n )
 {
 	return mem_allocate( n, __FILE__, __LINE__ );
 }
@@ -122,7 +122,7 @@ void operator delete( void* p )
 	mem_free( p );
 }
 
-void* operator new( size_t n, const char* file, int line )
+void* operator new( unsigned n, const char* file, int line )
 {
 	return mem_allocate( n, file, line );
 }

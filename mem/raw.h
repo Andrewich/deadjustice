@@ -1,23 +1,21 @@
 #ifndef _MEM_RAW_H
 #define _MEM_RAW_H
 
-#ifdef WIN32
-	#ifdef MEM_EXPORTS
-		#ifdef __cplusplus
-		#define MEM_API extern "C" __declspec(dllexport)
-		#else
-		#define MEM_API __declspec(dllexport)
-		#endif
+
+#ifdef MEM_EXPORTS
+	#ifdef __cplusplus
+	#define MEM_API extern "C" __declspec(dllexport)
 	#else
-		#ifdef __cplusplus
-		#define MEM_API extern "C" __declspec(dllimport)
-		#else
-		#define MEM_API __declspec(dllimport)
-		#endif
-	#endif // MEM_EXPORTS
+	#define MEM_API __declspec(dllexport)
+	#endif
 #else
-	#define MEM_API
-#endif
+	#ifdef __cplusplus
+	#define MEM_API extern "C" __declspec(dllimport)
+	#else
+	#define MEM_API __declspec(dllimport)
+	#endif
+#endif // MEM_EXPORTS
+
 
 /** 
  * Allocates n byte memory block. 
