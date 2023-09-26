@@ -59,3 +59,5 @@ ps/pstest/particles/images/blood_splat.tga
 ps/pstest/particles/images/flare_wallflare.tga
 io/tests/data/dataout_java.dat
 .vs/
+lib/
+build/
