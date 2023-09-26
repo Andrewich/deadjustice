@@ -5,6 +5,27 @@ VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lang", "lang\lang.vcxproj", "{0C6EE27F-4745-472A-A064-517015E353CF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{71FB05CD-DEC3-42D7-B863-B9A30143329F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msvc6", "msvc6", "{81961254-DC51-4B2A-B732-A42010AB04E8}"
+	ProjectSection(SolutionItems) = preProject
+		config\msvc6\config_msvc.h = config\msvc6\config_msvc.h
+		config\msvc6\netdb.h = config\msvc6\netdb.h
+		config\msvc6\pthread.h = config\msvc6\pthread.h
+		config\msvc6\unistd.h = config\msvc6\unistd.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "netinet", "netinet", "{70FE8B25-FF3F-414F-A3E4-35D2ED0B0189}"
+	ProjectSection(SolutionItems) = preProject
+		config\msvc6\netinet\in.h = config\msvc6\netinet\in.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sys", "sys", "{6471A795-2AA3-4F67-B974-C00E24C07AED}"
+	ProjectSection(SolutionItems) = preProject
+		config\msvc6\sys\ioctl.h = config\msvc6\sys\ioctl.h
+		config\msvc6\sys\socket.h = config\msvc6\sys\socket.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -18,6 +39,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81961254-DC51-4B2A-B732-A42010AB04E8} = {71FB05CD-DEC3-42D7-B863-B9A30143329F}
+		{70FE8B25-FF3F-414F-A3E4-35D2ED0B0189} = {81961254-DC51-4B2A-B732-A42010AB04E8}
+		{6471A795-2AA3-4F67-B974-C00E24C07AED} = {81961254-DC51-4B2A-B732-A42010AB04E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CFB1D83A-B804-4051-BE22-003EB389C9AB}
