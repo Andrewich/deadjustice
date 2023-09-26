@@ -13,9 +13,18 @@
   <ItemGroup>
     <ClInclude Include="Char.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="internal\config.h" />
+    <ClInclude Include="internal\config_inl.h" />
+    <ClInclude Include="internal\Mutex.h" />
+    <ClInclude Include="internal\NumberParse.h" />
+    <ClInclude Include="internal\Semaphore.h" />
+    <ClInclude Include="internal\Thread_impl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="internal\Mutex.cpp" />
+    <ClCompile Include="internal\Semaphore.cpp" />
+    <ClCompile Include="internal\Thread_impl.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

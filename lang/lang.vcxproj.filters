@@ -7,6 +7,15 @@
     <Filter Include="src">
       <UniqueIdentifier>{389dd339-cbc3-4828-961a-22abe61f0a5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="internal">
+      <UniqueIdentifier>{896db28b-60a0-4246-9c57-a0c64f085bdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\include">
+      <UniqueIdentifier>{e179ed77-513a-4b84-bee9-e3f7d78dd22d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\src">
+      <UniqueIdentifier>{f02b56ed-f859-474f-825d-9d6c5349c3a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Char.h">
@@ -15,10 +24,37 @@
     <ClInclude Include="Character.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="internal\config.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\config_inl.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Mutex.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\NumberParse.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Semaphore.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Thread_impl.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Mutex.cpp">
+      <Filter>internal\src</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Semaphore.cpp">
+      <Filter>internal\src</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Thread_impl.cpp">
+      <Filter>internal\src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
