@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sys", "sys", "{6471A795-2AA
 		config\msvc6\sys\socket.h = config\msvc6\sys\socket.h
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mem", "mem\mem.vcxproj", "{D0586623-319C-4B32-ACE5-4EF03AFE1B3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -36,6 +38,10 @@ Global
 		{0C6EE27F-4745-472A-A064-517015E353CF}.Debug|x86.Build.0 = Debug|Win32
 		{0C6EE27F-4745-472A-A064-517015E353CF}.Release|x86.ActiveCfg = Release|Win32
 		{0C6EE27F-4745-472A-A064-517015E353CF}.Release|x86.Build.0 = Release|Win32
+		{D0586623-319C-4B32-ACE5-4EF03AFE1B3D}.Debug|x86.ActiveCfg = Debug|Win32
+		{D0586623-319C-4B32-ACE5-4EF03AFE1B3D}.Debug|x86.Build.0 = Debug|Win32
+		{D0586623-319C-4B32-ACE5-4EF03AFE1B3D}.Release|x86.ActiveCfg = Release|Win32
+		{D0586623-319C-4B32-ACE5-4EF03AFE1B3D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,6 +42,33 @@
     <ClInclude Include="internal\Thread_impl.h">
       <Filter>internal\include</Filter>
     </ClInclude>
+    <ClInclude Include="Long.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberReader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberFormatException.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Throwable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Format.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Formattable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp">
@@ -55,6 +82,21 @@
     </ClCompile>
     <ClCompile Include="internal\Thread_impl.cpp">
       <Filter>internal\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Long.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Throwable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Format.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Formattable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

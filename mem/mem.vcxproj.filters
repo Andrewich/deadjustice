@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="Group.inl">
+      <Filter>include</Filter>
+    </None>
+    <None Include="raw.inl">
+      <Filter>include</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{143ed9c8-a1a8-4bf0-94b1-ba765bb008cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{ef633a09-b009-4de7-a6a6-ea97cec0ac47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal">
+      <UniqueIdentifier>{a034d282-7fec-41e5-b4b4-e95ecf141c66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\src">
+      <UniqueIdentifier>{54ee3957-8fef-4811-ad59-5a40d9ad5869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\include">
+      <UniqueIdentifier>{5eceaee5-cacd-4e13-b13e-7c8b17fe1330}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Group.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="raw.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\error.c">
+      <Filter>internal\src</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\testAndSet.c">
+      <Filter>internal\src</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Vector.c">
+      <Filter>internal\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Group.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="raw.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\config.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\error.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\FreedBlock_t.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Group_t.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\GroupItem_t.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\testAndSet.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Vector.h">
+      <Filter>internal\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
