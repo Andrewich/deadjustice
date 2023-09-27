@@ -96,7 +96,7 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>copy $(TargetPath) $(SolutionDir)DLL\</Command>
+      <Command>XCOPY "$(TargetPath)" "$(SolutionDir)DLL\" /D /K /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

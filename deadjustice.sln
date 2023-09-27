@@ -33,6 +33,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mem", "mem", "{45A620F8-2FC4-41AA-B3A9-C0FD726B4CB8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "mem\test\test.vcxproj", "{49E8B366-CFB5-44FB-A90B-8DED311A82DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D0586623-319C-4B32-ACE5-4EF03AFE1B3D} = {D0586623-319C-4B32-ACE5-4EF03AFE1B3D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
