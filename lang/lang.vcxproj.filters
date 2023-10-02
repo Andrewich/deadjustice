@@ -18,12 +18,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Char.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="internal\config.h">
       <Filter>internal\include</Filter>
     </ClInclude>
@@ -42,22 +36,31 @@
     <ClInclude Include="internal\Thread_impl.h">
       <Filter>internal\include</Filter>
     </ClInclude>
-    <ClInclude Include="Long.h">
+    <ClInclude Include="Array.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="Number.h">
+    <ClInclude Include="Char.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="NumberReader.h">
+    <ClInclude Include="Character.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="NumberFormatException.h">
+    <ClInclude Include="Debug.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Double.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicLinkLibrary.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="Exception.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="Throwable.h">
+    <ClInclude Include="Float.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="Format.h">
@@ -66,12 +69,105 @@
     <ClInclude Include="Formattable.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="Integer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Long.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberFormatException.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberReader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Ptr.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Short.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="String.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Throwable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="UTF16.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="UTFConverter.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Double.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicLinkLibrary.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Float.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Format.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Formattable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Integer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Long.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberReader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Short.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Throwable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="UTFConverter.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="internal\Mutex.cpp">
@@ -82,24 +178,6 @@
     </ClCompile>
     <ClCompile Include="internal\Thread_impl.cpp">
       <Filter>internal\src</Filter>
-    </ClCompile>
-    <ClCompile Include="Long.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Throwable.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Format.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Formattable.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="String.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="NumberReader.cpp">
-      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
