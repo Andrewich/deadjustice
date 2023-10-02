@@ -57,7 +57,7 @@ public:
 
 	int			put( char ch );
 
-	T			value() const;
+	double		value() const;
 	bool		valid() const														{return m_valid;}
 
 private:
@@ -81,11 +81,11 @@ private:
 
 	bool		m_valid;
 	State		m_state;
-	T			m_sign;
-	T			m_value;
-	T			m_fractionScale;
-	T			m_expSign;
-	T			m_expValue;
+	double		m_sign;
+	double		m_value;
+	double		m_fractionScale;
+	double		m_expSign;
+	double		m_expValue;
 };
 
 // NumberReader specialization for float.
@@ -96,7 +96,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	T			value() const														{return (T)m_impl.value();}
+	float		value() const														{return (float)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -111,7 +111,7 @@ public:
 
 	int			put( char ch );
 
-	T			value() const;
+	long		value() const;
 	bool		valid() const														{return m_valid;}
 
 private:
@@ -127,8 +127,8 @@ private:
 
 	bool		m_valid;
 	State		m_state;
-	T			m_sign;
-	T			m_value;
+	long		m_sign;
+	long		m_value;
 };
 
 // NumberReader specialization for int.
@@ -139,7 +139,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	T			value() const														{return (T)m_impl.value();}
+	int			value() const														{return (int)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -154,7 +154,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	T			value() const														{return (T)m_impl.value();}
+	short		value() const														{return (short)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -167,10 +167,10 @@ template <> class NumberReader<unsigned long>
 public:
 	NumberReader()																	{m_state=STATE_INIT; m_valid=false;}
 
-	int			put( char ch );
+	int				put( char ch );
 
-	T			value() const;
-	bool		valid() const														{return m_valid;}
+	unsigned long	value() const;
+	bool			valid() const														{return m_valid;}
 
 private:
 	enum State
@@ -181,9 +181,9 @@ private:
 		STATE_BODY,
 	};
 
-	bool		m_valid;
-	State		m_state;
-	T			m_value;
+	bool			m_valid;
+	State			m_state;
+	unsigned long	m_value;
 };
 
 // NumberReader specialization for unsigned int.
@@ -194,7 +194,7 @@ public:
 
 	int			put( char ch )														{return m_impl.put(ch);}
 
-	T			value() const														{return (T)m_impl.value();}
+	unsigned	value() const														{return (unsigned)m_impl.value();}
 	bool		valid() const														{return m_impl.valid();}
 
 private:
@@ -205,12 +205,12 @@ private:
 template <> class NumberReader<unsigned short>
 {
 public:
-	NumberReader()																	{}
+	NumberReader()																		{}
 
-	int			put( char ch )														{return m_impl.put(ch);}
+	int				put( char ch )														{return m_impl.put(ch);}
 
-	T			value() const														{return (T)m_impl.value();}
-	bool		valid() const														{return m_impl.valid();}
+	unsigned short	value() const														{return (unsigned short)m_impl.value();}
+	bool			valid() const														{return m_impl.valid();}
 
 private:
 	NumberReader<unsigned long>	m_impl;

@@ -49,7 +49,7 @@ static bool isAsciiDigit( char ch )
 
 //-----------------------------------------------------------------------------
 
-template <> int NumberReader<double>::put( char ch )
+int NumberReader<double>::put( char ch )
 {
 	switch ( m_state )
 	{
@@ -84,7 +84,7 @@ template <> int NumberReader<double>::put( char ch )
 		if ( char('.') == ch )
 		{
 			m_state = STATE_FRACTION;
-			m_fractionScale = T(0.1);
+			m_fractionScale = double(0.1);
 			return 1;
 		}
 		else if ( expChar(ch) )
@@ -95,8 +95,8 @@ template <> int NumberReader<double>::put( char ch )
 		}
 		else if ( isAsciiDigit(ch) )
 		{
-			m_value *= T(10);
-			m_value += digitToNumber<T>(ch);
+			m_value *= double(10);
+			m_value += digitToNumber<double>(ch);
 			m_valid = true;
 			return 1;
 		}
@@ -105,8 +105,8 @@ template <> int NumberReader<double>::put( char ch )
 	case STATE_FRACTION:
 		if ( isAsciiDigit(ch) )
 		{
-			m_value += digitToNumber<T>(ch) * m_fractionScale;
-			m_fractionScale *= T(0.1);
+			m_value += digitToNumber<double>(ch) * m_fractionScale;
+			m_fractionScale *= double(0.1);
 			m_valid = true;
 			return 1;
 		}
@@ -139,13 +139,13 @@ template <> int NumberReader<double>::put( char ch )
 		if ( char('.') == ch )
 		{
 			m_state = STATE_EXP_FRACTION;
-			m_fractionScale = T(0.1);
+			m_fractionScale = double(0.1);
 			return 1;
 		}
 		else if ( isAsciiDigit(ch) )
 		{
-			m_expValue *= T(10);
-			m_expValue += digitToNumber<T>(ch);
+			m_expValue *= double(10);
+			m_expValue += digitToNumber<double>(ch);
 			m_valid	= true; 
 			return 1;
 		}
@@ -154,8 +154,8 @@ template <> int NumberReader<double>::put( char ch )
 	case STATE_EXP_FRACTION:
 		if ( isAsciiDigit(ch) )
 		{
-			m_expValue += digitToNumber<T>(ch) * m_fractionScale;
-			m_fractionScale *= T(0.1);
+			m_expValue += digitToNumber<double>(ch) * m_fractionScale;
+			m_fractionScale *= double(0.1);
 			m_valid	= true; 
 			return 1;
 		}
@@ -168,12 +168,12 @@ template <> int NumberReader<double>::put( char ch )
 	return 0;
 }
 
-template <> double NumberReader<double>::value() const
+double NumberReader<double>::value() const
 {
-	return m_sign * m_value * (T)pow( 10.0, m_expSign*m_expValue );
+	return m_sign * m_value * (double)pow( 10.0, m_expSign*m_expValue );
 }
 
-template <> int NumberReader<long>::put( char ch )
+int NumberReader<long>::put( char ch )
 {
 	switch ( m_state )
 	{
@@ -205,8 +205,8 @@ template <> int NumberReader<long>::put( char ch )
 	case STATE_BODY:
 		if ( isAsciiDigit(ch) )
 		{
-			m_value *= T(10);
-			m_value += digitToNumber<T>(ch);
+			m_value *= long(10);
+			m_value += digitToNumber<long>(ch);
 			m_valid = true;
 			return 1;
 		}
@@ -219,12 +219,12 @@ template <> int NumberReader<long>::put( char ch )
 	return 0;
 }
 
-template <> long NumberReader<long>::value() const
+long NumberReader<long>::value() const
 {
 	return m_sign * m_value;
 }
 
-template <> int NumberReader<unsigned long>::put( char ch )
+int NumberReader<unsigned long>::put( char ch )
 {
 	switch ( m_state )
 	{
@@ -238,8 +238,8 @@ template <> int NumberReader<unsigned long>::put( char ch )
 	case STATE_BODY:
 		if ( isAsciiDigit(ch) )
 		{
-			m_value *= T(10);
-			m_value += digitToNumber<T>(ch);
+			m_value *= unsigned long(10);
+			m_value += digitToNumber<unsigned long>(ch);
 			m_valid = true;
 			return 1;
 		}
@@ -252,7 +252,7 @@ template <> int NumberReader<unsigned long>::put( char ch )
 	return 0;
 }
 
-template <> unsigned long NumberReader<unsigned long>::value() const
+unsigned long NumberReader<unsigned long>::value() const
 {
 	return m_value;
 }
