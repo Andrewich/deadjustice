@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{5644a510-cccf-47cf-b259-e8e1b4bac0e1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="internal\config.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\HashtablePair.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Allocator.h" />
+    <ClInclude Include="Equal.h" />
+    <ClInclude Include="ExProperties.h" />
+    <ClInclude Include="Hash.h" />
+    <ClInclude Include="Hashtable.h" />
+    <ClInclude Include="HashtableIterator.h" />
+    <ClInclude Include="Less.h" />
+    <ClInclude Include="lowerBound.h" />
+    <ClInclude Include="Properties.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Allocator.inl" />
+    <None Include="Hashtable.inl" />
+    <None Include="HashtableIterator.inl" />
+    <None Include="Vector.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ExProperties.cpp" />
+    <ClCompile Include="Hashtable.cpp" />
+    <ClCompile Include="Properties.cpp" />
+    <ClCompile Include="Random.cpp" />
+  </ItemGroup>
+</Project>
