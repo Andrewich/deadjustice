@@ -64,3 +64,4 @@ build/
 lang/lib/
 mem/lib/
 math/lib/
+external/lib/
