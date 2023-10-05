@@ -1,0 +1,4 @@
+[submodule "external/zlib"]
+	path = external/zlib
+	url = https://github.com/Andrewich/zlib.git
+	branch = master
