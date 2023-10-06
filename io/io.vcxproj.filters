@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{543e6e3a-16d6-49b6-b469-7f1718ea0efd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="internal\config.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\StdioEx.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteArrayInputStream.h" />
+    <ClInclude Include="ByteArrayOutputStream.h" />
+    <ClInclude Include="ChunkInputStream.h" />
+    <ClInclude Include="ChunkOutputStream.h" />
+    <ClInclude Include="CommandReader.h" />
+    <ClInclude Include="DataInputStream.h" />
+    <ClInclude Include="DataOutputStream.h" />
+    <ClInclude Include="DirectoryInputStreamArchive.h" />
+    <ClInclude Include="EOFException.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileInputStream.h" />
+    <ClInclude Include="FileNotFoundException.h" />
+    <ClInclude Include="FileOutputStream.h" />
+    <ClInclude Include="FilterInputStream.h" />
+    <ClInclude Include="FilterOutputStream.h" />
+    <ClInclude Include="InputStream.h" />
+    <ClInclude Include="InputStreamArchive.h" />
+    <ClInclude Include="InputStreamReader.h" />
+    <ClInclude Include="IOException.h" />
+    <ClInclude Include="OutputStream.h" />
+    <ClInclude Include="OutputStreamWriter.h" />
+    <ClInclude Include="Reader.h" />
+    <ClInclude Include="UnsupportedEncodingException.h" />
+    <ClInclude Include="Writer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="internal\StdioEx.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteArrayInputStream.cpp" />
+    <ClCompile Include="ByteArrayOutputStream.cpp" />
+    <ClCompile Include="ChunkInputStream.cpp" />
+    <ClCompile Include="ChunkOutputStream.cpp" />
+    <ClCompile Include="CommandReader.cpp" />
+    <ClCompile Include="DataInputStream.cpp" />
+    <ClCompile Include="DataOutputStream.cpp" />
+    <ClCompile Include="DirectoryInputStreamArchive.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileInputStream.cpp" />
+    <ClCompile Include="FileOutputStream.cpp" />
+    <ClCompile Include="FilterInputStream.cpp" />
+    <ClCompile Include="FilterOutputStream.cpp" />
+    <ClCompile Include="InputStream.cpp" />
+    <ClCompile Include="InputStreamReader.cpp" />
+    <ClCompile Include="OutputStream.cpp" />
+    <ClCompile Include="OutputStreamWriter.cpp" />
+    <ClCompile Include="Reader.cpp" />
+    <ClCompile Include="Writer.cpp" />
+  </ItemGroup>
+</Project>
