@@ -64,6 +64,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{BE
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "external\zlib.vcxproj", "{E4FD05E9-BFC2-466D-9554-7B4C8BEEADCA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win", "win\win.vcxproj", "{049B106B-ADB3-44DA-87B2-39B8E48F5F4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -106,6 +108,10 @@ Global
 		{E4FD05E9-BFC2-466D-9554-7B4C8BEEADCA}.Debug|x86.Build.0 = Debug|Win32
 		{E4FD05E9-BFC2-466D-9554-7B4C8BEEADCA}.Release|x86.ActiveCfg = Release|Win32
 		{E4FD05E9-BFC2-466D-9554-7B4C8BEEADCA}.Release|x86.Build.0 = Release|Win32
+		{049B106B-ADB3-44DA-87B2-39B8E48F5F4D}.Debug|x86.ActiveCfg = Debug|Win32
+		{049B106B-ADB3-44DA-87B2-39B8E48F5F4D}.Debug|x86.Build.0 = Debug|Win32
+		{049B106B-ADB3-44DA-87B2-39B8E48F5F4D}.Release|x86.ActiveCfg = Release|Win32
+		{049B106B-ADB3-44DA-87B2-39B8E48F5F4D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
