@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{37c67f21-6aac-4146-8ad9-c25ad24dea30}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="internal\config.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Index.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\LinkedItem.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\PolygonMaterialIndexLess.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\PolygonReference.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Vec3.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\VertexReference.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\VMapImpl.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="DiscontinuousVertexMap.h" />
+    <ClInclude Include="MeshBuilder.h" />
+    <ClInclude Include="MeshBuilderItem.h" />
+    <ClInclude Include="Polygon.h" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="VertexMap.h" />
+    <ClInclude Include="VertexMapFormat.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="internal\LinkedItem.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\VMapImpl.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="DiscontinuousVertexMap.cpp" />
+    <ClCompile Include="MeshBuilder.cpp" />
+    <ClCompile Include="MeshBuilderItem.cpp" />
+    <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="VertexMap.cpp" />
+  </ItemGroup>
+</Project>
