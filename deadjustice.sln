@@ -52,6 +52,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "util", "util\util.vcxproj",
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zip", "util\zip\zip.vcxproj", "{5A9CD21F-774F-4C42-A44F-27E0937E3997}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E4FD05E9-BFC2-466D-9554-7B4C8BEEADCA} = {E4FD05E9-BFC2-466D-9554-7B4C8BEEADCA}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zar", "util\zip\zar\zar.vcxproj", "{645722AB-68DE-43CE-8001-45363F996D1B}"
 EndProject

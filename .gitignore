@@ -65,3 +65,5 @@ lang/lib/
 mem/lib/
 math/lib/
 external/lib/
+util/lib/
+util/zip/lib/
