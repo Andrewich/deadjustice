@@ -2,3 +2,6 @@
 	path = external/zlib
 	url = https://github.com/Andrewich/zlib.git
 	branch = master
+[submodule "external/libjpeg"]
+	path = external/libjpeg
+	url = https://github.com/Andrewich/jpeg-6b.git
