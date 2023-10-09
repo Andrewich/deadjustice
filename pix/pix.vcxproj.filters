@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Colorf.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="SurfaceFormat.cpp" />
+    <ClCompile Include="SurfaceUtil.cpp" />
+    <ClCompile Include="internal\loadBMP.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\loadDDS.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\loadJPEG.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\loadTGA.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Colorf.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="Surface.h" />
+    <ClInclude Include="SurfaceFormat.h" />
+    <ClInclude Include="SurfaceUtil.h" />
+    <ClInclude Include="internal\config.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\loadBMP.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\loadDDS.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\loadJPEG.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\loadTGA.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\message.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{a81d55b9-2a96-4e59-a423-818629678d52}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
