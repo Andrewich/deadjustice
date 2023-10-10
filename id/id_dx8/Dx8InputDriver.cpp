@@ -216,7 +216,7 @@ BOOL CALLBACK Dx8InputDriver::DICreateAttachedInputDevicesCallback( LPCDIDEVICEI
 
 		/** Use input device product name as friendly device name. */
 		char indexString[16]; memset( indexString, 0, 16 );
-		itoa( enumindex, indexString, 10 );
+		_itoa( enumindex, indexString, 10 );
 		strcpy( friendlyDeviceNames[enumindex], (char*)&desc->tszProductName );
 
 		/* Append enumeration index to the name. */
