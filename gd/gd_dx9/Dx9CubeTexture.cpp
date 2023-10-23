@@ -63,7 +63,7 @@ void Dx9CubeTexture::load( GraphicsDevice* device )
 	const D3DCAPS9&		caps	= dev->caps();
 
 	if ( !m_tex )
-	{
+	{		
 		UINT			height	= m_imgs[0].height();
 		UINT			levels	= m_mipMapLevels;
 		DWORD			usage	= 0;
@@ -101,8 +101,8 @@ void Dx9CubeTexture::load( GraphicsDevice* device )
 			//	message( "Device does not support texture format %s, now trying %s.", toString(originalFormat), toString(format) );
 
 			if ( format == D3DFMT_UNKNOWN )
-			{
-				error( "Failed to create texture: width=%i, height=%i, levels=%i, usage=0x%X, format=%s, pool=0x%X.", width, height, levels, usage, toString(originalFormat), pool );
+			{				
+				error( "Failed to create texture: width=%i, height=%i, levels=%i, usage=0x%X, format=%s, pool=0x%X.", m_imgs[0].width(), height, levels, usage, toString(originalFormat), pool );
 				return;
 			}
 			

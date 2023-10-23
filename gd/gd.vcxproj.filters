@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="BaseTexture.h" />
+    <ClInclude Include="BaseTextureImplInterface.h" />
+    <ClInclude Include="CubeTexture.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="Errors.h" />
+    <ClInclude Include="GraphicsDevice.h" />
+    <ClInclude Include="GraphicsDriver.h" />
+    <ClInclude Include="LightState.h" />
+    <ClInclude Include="LockMode.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="RenderToTexture.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="VertexFormat.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LockMode.inl" />
+    <None Include="VertexFormat.inl" />
+  </ItemGroup>
+</Project>

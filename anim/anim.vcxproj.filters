@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{2c51288d-eae2-42f9-a6d9-403208288334}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Animatable.cpp" />
+    <ClCompile Include="Control.cpp" />
+    <ClCompile Include="Interpolator.cpp" />
+    <ClCompile Include="QuaternionInterpolator.cpp" />
+    <ClCompile Include="VectorInterpolator.cpp" />
+    <ClCompile Include="internal\Quat.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animatable.h" />
+    <ClInclude Include="Control.h" />
+    <ClInclude Include="Interpolator.h" />
+    <ClInclude Include="QuaternionInterpolator.h" />
+    <ClInclude Include="VectorInterpolator.h" />
+    <ClInclude Include="internal\config.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\PtrLess.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Quat.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

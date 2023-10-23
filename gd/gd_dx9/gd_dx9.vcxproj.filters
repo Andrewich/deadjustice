@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Dx9BaseTexture.cpp" />
+    <ClCompile Include="Dx9CubeTexture.cpp" />
+    <ClCompile Include="Dx9Effect.cpp" />
+    <ClCompile Include="Dx9GraphicsDevice.cpp" />
+    <ClCompile Include="Dx9GraphicsDriver.cpp" />
+    <ClCompile Include="Dx9Material.cpp" />
+    <ClCompile Include="Dx9Primitive.cpp" />
+    <ClCompile Include="Dx9RenderingState.cpp" />
+    <ClCompile Include="Dx9RenderToTexture.cpp" />
+    <ClCompile Include="Dx9Texture.cpp" />
+    <ClCompile Include="gd_dx9.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="toDx9.cpp" />
+    <ClCompile Include="toString.cpp" />
+    <ClCompile Include="..\gd_dx_common\DrvObject.cpp">
+      <Filter>gd_dx_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gd_dx_common\error.cpp">
+      <Filter>gd_dx_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gd_dx_common\LogFile.cpp">
+      <Filter>gd_dx_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gd_dx_common\operator_new.cpp">
+      <Filter>gd_dx_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gd_dx_common\Sort.cpp">
+      <Filter>gd_dx_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gd_dx_common\toSurfaceFormat.cpp">
+      <Filter>gd_dx_common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dx9BaseTexture.h" />
+    <ClInclude Include="Dx9BaseTextureImplInterface.h" />
+    <ClInclude Include="Dx9CubeTexture.h" />
+    <ClInclude Include="Dx9Effect.h" />
+    <ClInclude Include="Dx9GraphicsDevice.h" />
+    <ClInclude Include="Dx9GraphicsDriver.h" />
+    <ClInclude Include="Dx9Material.h" />
+    <ClInclude Include="Dx9Primitive.h" />
+    <ClInclude Include="Dx9RenderingState.h" />
+    <ClInclude Include="Dx9RenderToTexture.h" />
+    <ClInclude Include="Dx9SurfaceLock.h" />
+    <ClInclude Include="Dx9Texture.h" />
+    <ClInclude Include="gd_dx9.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="toDx9.h" />
+    <ClInclude Include="toString.h" />
+    <ClInclude Include="..\gd_dx_common\Array.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gd_dx_common\config.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gd_dx_common\DrvObject.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gd_dx_common\error.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gd_dx_common\LogFile.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gd_dx_common\Sort.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gd_dx_common\toSurfaceFormat.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gd_dx_common\zero.h">
+      <Filter>gd_dx_common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="gd_dx_common">
+      <UniqueIdentifier>{e99ea255-9c46-45b7-af94-118e614d1845}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
