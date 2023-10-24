@@ -227,7 +227,7 @@ void Context::destroy()
 {
 	if ( m_this )
 	{
-		if ( m_this == sm_active )
+		if ( m_this.ptr() == sm_active )
 			sm_active = 0;
 
 		m_this->destroy();

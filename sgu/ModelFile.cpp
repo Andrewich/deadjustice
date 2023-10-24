@@ -997,7 +997,7 @@ public:
 			{
 				String paramName = in->readString();
 				String texFileName = in->readString();
-				P(BaseTexture) tex = loadTex( texFileName );
+				P(BaseTexture) tex = loadTex( texFileName ).ptr();
 				fx->setTexture( paramName, tex );
 				//Debug::println( "Material {0}: Assigned bitmap texture {1} to effect parameter {2}", fx->name(), texFileName, paramName );
 			}
@@ -1005,7 +1005,7 @@ public:
 			{
 				String paramName = in->readString();
 				String texFileName = in->readString();
-				P(BaseTexture) tex = loadCubeTex( texFileName );
+				P(BaseTexture) tex = loadCubeTex( texFileName ).ptr();
 				fx->setTexture( paramName, tex );
 				//Debug::println( "Material {0}: Assigned cube texture {1} to effect parameter {2}", fx->name(), texFileName, paramName );
 			}
@@ -1082,7 +1082,7 @@ public:
 			
 			if ( subname == "filename" )
 			{
-				P(BaseTexture) tex = loadTex( in->readString() );
+				P(BaseTexture) tex = loadTex( in->readString() ).ptr();
 				mat->setTexture( layer, tex );
 			}
 			else if ( subname == "colorcombine" )

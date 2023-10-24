@@ -193,7 +193,7 @@ void Node::unlink()
 		// keep reference for safety (avoid premature destruction)
 		P(Node) thisNode = this;
 		
-		if ( m_parent->m_child == this )
+		if ( m_parent->m_child.ptr() == this )
 		{
 			// this is the first child
 			assert( !m_previous );

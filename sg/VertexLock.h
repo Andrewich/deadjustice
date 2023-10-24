@@ -19,7 +19,7 @@ template <class T> class VertexLock
 {
 public:
 	/** Locks object vertex data with specified lock mode. */
-	VertexLock( T* obj, T::LockType lock ) :
+	VertexLock( T* obj, typename T::LockType lock ) :
 		m_obj(obj)
 	{
 		obj->lockVertices( lock );

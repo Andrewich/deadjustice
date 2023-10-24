@@ -11,27 +11,54 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="config.h" />
+    <ClCompile Include="CameraUtil.cpp" />
+    <ClCompile Include="ContextUtil.cpp" />
+    <ClCompile Include="internal\ChunkUtil.cpp" />
+    <ClCompile Include="LineListUtil.cpp" />
+    <ClCompile Include="LookAtControl.cpp" />
+    <ClCompile Include="MeshUtil.cpp" />
+    <ClCompile Include="ModelFile.cpp" />
+    <ClCompile Include="ModelFileCache.cpp" />
+    <ClCompile Include="NodeGroupSet.cpp" />
+    <ClCompile Include="NodeUtil.cpp" />
+    <ClCompile Include="SceneFile.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ShadowUtil.cpp" />
+    <ClCompile Include="TextureUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="CameraUtil.h" />
+    <ClInclude Include="ContextUtil.h" />
+    <ClInclude Include="internal\ChunkUtil.h" />
+    <ClInclude Include="internal\config.h" />
+    <ClInclude Include="LineListUtil.h" />
+    <ClInclude Include="LookAtControl.h" />
+    <ClInclude Include="MeshUtil.h" />
+    <ClInclude Include="ModelFile.h" />
+    <ClInclude Include="ModelFileCache.h" />
+    <ClInclude Include="NodeGroupSet.h" />
+    <ClInclude Include="NodeUtil.h" />
+    <ClInclude Include="SceneFile.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ShadowUtil.h" />
+    <ClInclude Include="TextureUtil.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{38db58c7-3ab9-40bd-b772-3cc0f5022ca0}</ProjectGuid>
-    <RootNamespace>testiddx8</RootNamespace>
+    <ProjectGuid>{c30b9caf-61ec-4527-9c67-1630e7392f6d}</ProjectGuid>
+    <RootNamespace>sgu</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -51,33 +78,30 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)build\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)lib\</OutDir>
     <IntDir>$(SolutionDir)build\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)build\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)lib\</OutDir>
     <IntDir>$(SolutionDir)build\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>internal\;$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>
+      </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)win\lib\;$(SolutionDir)io\lib\;$(SolutionDir)lang\lib\;$(SolutionDir)mem\lib\;$(SolutionDir)sg\lib\;$(SolutionDir)anim\lib\;$(SolutionDir)pix\lib\;$(SolutionDir)external\lib\;$(SolutionDir)math\lib\;$(SolutionDir)util\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>memd.lib;langd.lib;iod.lib;wind.lib;sgd.lib;animd.lib;libjpegd.lib;pixd.lib;mathd.lib;utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>XCOPY "$(SolutionDir)DLL\memd.dll" "$(IntDir)" /D /K /Y
-XCOPY "$(SolutionDir)DLL\gd_dx9d.dll" "$(IntDir)" /D /K /Y
-XCOPY "$(SolutionDir)DLL\id_dx8d.dll" "$(IntDir)" /D /K /Y</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -85,22 +109,19 @@ XCOPY "$(SolutionDir)DLL\id_dx8d.dll" "$(IntDir)" /D /K /Y</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>internal\;$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>
+      </SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)win\lib\;$(SolutionDir)io\lib\;$(SolutionDir)lang\lib\;$(SolutionDir)mem\lib\;$(SolutionDir)sg\lib\;$(SolutionDir)anim\lib\;$(SolutionDir)pix\lib\;$(SolutionDir)external\lib\;$(SolutionDir)math\lib\;$(SolutionDir)util\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mem.lib;lang.lib;io.lib;win.lib;sg.lib;anim.lib;libjpeg.lib;pix.lib;math.lib;util.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>XCOPY "$(SolutionDir)DLL\gd_dx9.dll" "$(IntDir)" /D /K /Y
-XCOPY "$(SolutionDir)DLL\id_dx8.dll" "$(IntDir)" /D /K /Y</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

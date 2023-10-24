@@ -4,9 +4,11 @@
 #include <io/OutputStream.h>
 #include <string.h>
 #include <assert.h>
+extern "C" {
 #include "../../external/libjpeg/jpeglib.h"
 #include "../../external/libjpeg/jinclude.h"
 #include "../../external/libjpeg/jerror.h"
+}
 #include "config.h"
 
 //-----------------------------------------------------------------------------

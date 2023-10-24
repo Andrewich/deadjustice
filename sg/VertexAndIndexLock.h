@@ -20,7 +20,7 @@ template <class T> class VertexAndIndexLock
 {
 public:
 	/** Locks object vertex and index data with specified lock mode. */
-	VertexAndIndexLock( T* obj, T::LockType lock ) :
+	VertexAndIndexLock( T* obj, typename T::LockType lock ) :
 		m_indexLock(obj,lock), m_vertexLock(obj,lock)
 	{
 	}

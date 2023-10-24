@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{b82e0f0b-5b43-41c8-a7d2-43faac25c180}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="internal\BoundVolume.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\GdUtil.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\TextureCache.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTexture.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Context.cpp" />
+    <ClCompile Include="ContextObject.cpp" />
+    <ClCompile Include="CubeTexture.cpp" />
+    <ClCompile Include="Curve.cpp" />
+    <ClCompile Include="DirectLight.cpp" />
+    <ClCompile Include="Dummy.cpp" />
+    <ClCompile Include="EdgeHash.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Font.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LineList.cpp" />
+    <ClCompile Include="LOD.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Morpher.cpp" />
+    <ClCompile Include="MorphTarget.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="PatchList.cpp" />
+    <ClCompile Include="PointLight.cpp" />
+    <ClCompile Include="PolygonAdjacency.cpp" />
+    <ClCompile Include="Primitive.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShadowShader.cpp" />
+    <ClCompile Include="ShadowVolume.cpp" />
+    <ClCompile Include="SpotLight.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TriangleList.cpp" />
+    <ClCompile Include="VertexFormat.cpp" />
+    <ClCompile Include="ViewFrustum.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="internal\BoundVolume.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\config.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\GdUtil.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\NodeDistanceToCameraLess.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\TextureCache.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTexture.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="ContextObject.h" />
+    <ClInclude Include="CubeTexture.h" />
+    <ClInclude Include="Curve.h" />
+    <ClInclude Include="DirectLight.h" />
+    <ClInclude Include="Dummy.h" />
+    <ClInclude Include="Edge.h" />
+    <ClInclude Include="EdgeHash.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="IndexLock.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="LineList.h" />
+    <ClInclude Include="LockException.h" />
+    <ClInclude Include="LOD.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="Morpher.h" />
+    <ClInclude Include="MorphTarget.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="PatchList.h" />
+    <ClInclude Include="PointLight.h" />
+    <ClInclude Include="PolygonAdjacency.h" />
+    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShadowShader.h" />
+    <ClInclude Include="ShadowVolume.h" />
+    <ClInclude Include="SpotLight.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TriangleList.h" />
+    <ClInclude Include="VertexAndIndexLock.h" />
+    <ClInclude Include="VertexFormat.h" />
+    <ClInclude Include="VertexLock.h" />
+    <ClInclude Include="ViewFrustum.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Material.inl" />
+    <None Include="Model.inl" />
+    <None Include="Node.inl" />
+    <None Include="PolygonAdjacency.inl" />
+    <None Include="TriangleList.inl" />
+    <None Include="VertexFormat.inl" />
+    <None Include="ViewFrustum.inl" />
+  </ItemGroup>
+</Project>

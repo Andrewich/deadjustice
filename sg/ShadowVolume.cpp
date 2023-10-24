@@ -423,7 +423,7 @@ void ShadowVolume::draw()
 
 	if ( dev->stencil() )
 	{
-		Profile pr( "ShadowVolume.draw" );
+		//Profile pr( "ShadowVolume.draw" );
 
 		// update animated model shadow
 		if ( dynamicShadow() )

@@ -19,7 +19,7 @@ template <class T> class IndexLock
 {
 public:
 	/** Locks object index data with specified lock mode. */
-	IndexLock( T* obj, T::LockType lock ) :
+	IndexLock( T* obj, typename T::LockType lock ) :
 		m_obj(obj)
 	{
 		obj->lockIndices( lock );

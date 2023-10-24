@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CameraUtil.cpp" />
+    <ClCompile Include="ContextUtil.cpp" />
+    <ClCompile Include="LineListUtil.cpp" />
+    <ClCompile Include="LookAtControl.cpp" />
+    <ClCompile Include="MeshUtil.cpp" />
+    <ClCompile Include="ModelFile.cpp" />
+    <ClCompile Include="ModelFileCache.cpp" />
+    <ClCompile Include="NodeGroupSet.cpp" />
+    <ClCompile Include="NodeUtil.cpp" />
+    <ClCompile Include="SceneFile.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ShadowUtil.cpp" />
+    <ClCompile Include="TextureUtil.cpp" />
+    <ClCompile Include="internal\ChunkUtil.cpp">
+      <Filter>internal</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraUtil.h" />
+    <ClInclude Include="ContextUtil.h" />
+    <ClInclude Include="LineListUtil.h" />
+    <ClInclude Include="LookAtControl.h" />
+    <ClInclude Include="MeshUtil.h" />
+    <ClInclude Include="ModelFile.h" />
+    <ClInclude Include="ModelFileCache.h" />
+    <ClInclude Include="NodeGroupSet.h" />
+    <ClInclude Include="NodeUtil.h" />
+    <ClInclude Include="SceneFile.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ShadowUtil.h" />
+    <ClInclude Include="TextureUtil.h" />
+    <ClInclude Include="internal\ChunkUtil.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\config.h">
+      <Filter>internal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="internal">
+      <UniqueIdentifier>{89163365-0558-43aa-8e96-1f920806fc80}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

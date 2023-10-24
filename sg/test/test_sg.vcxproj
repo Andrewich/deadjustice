@@ -11,16 +11,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="config.h" />
+    <ClCompile Include="createCube.cpp" />
+    <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="createCube.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{38db58c7-3ab9-40bd-b772-3cc0f5022ca0}</ProjectGuid>
-    <RootNamespace>testiddx8</RootNamespace>
+    <ProjectGuid>{b6c7bc7f-e66c-4ca9-8891-aeeee4cd729f}</ProjectGuid>
+    <RootNamespace>testsg</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -53,6 +54,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)build\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)build\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -63,20 +65,19 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)sg\internal\;$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)win\lib\;$(SolutionDir)io\lib\;$(SolutionDir)lang\lib\;$(SolutionDir)mem\lib\;$(SolutionDir)sg\lib\;$(SolutionDir)anim\lib\;$(SolutionDir)pix\lib\;$(SolutionDir)external\lib\;$(SolutionDir)math\lib\;$(SolutionDir)util\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>memd.lib;langd.lib;iod.lib;wind.lib;sgd.lib;animd.lib;libjpegd.lib;pixd.lib;mathd.lib;utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lang\lib\;$(SolutionDir)win\lib\;$(SolutionDir)io\lib\;$(SolutionDir)sg\lib\;$(SolutionDir)mem\lib\;$(SolutionDir)anim\lib\;$(SolutionDir)math\lib\;$(SolutionDir)sgu\lib\;$(SolutionDir)pix\lib\;$(SolutionDir)util\lib\;$(SolutionDir)external\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>langd.lib;wind.lib;iod.lib;memd.lib;mathd.lib;zlibd.lib;libjpegd.lib;pixd.lib;sgd.lib;sgud.lib;animd.lib;utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>XCOPY "$(SolutionDir)DLL\memd.dll" "$(IntDir)" /D /K /Y
-XCOPY "$(SolutionDir)DLL\gd_dx9d.dll" "$(IntDir)" /D /K /Y
-XCOPY "$(SolutionDir)DLL\id_dx8d.dll" "$(IntDir)" /D /K /Y</Command>
+XCOPY "$(SolutionDir)DLL\gd_dx9d.dll" "$(IntDir)" /D /K /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,21 +86,20 @@ XCOPY "$(SolutionDir)DLL\id_dx8d.dll" "$(IntDir)" /D /K /Y</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)sg\internal\;$(SolutionDir);$(SolutionDir)config\msvc6\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)win\lib\;$(SolutionDir)io\lib\;$(SolutionDir)lang\lib\;$(SolutionDir)mem\lib\;$(SolutionDir)sg\lib\;$(SolutionDir)anim\lib\;$(SolutionDir)pix\lib\;$(SolutionDir)external\lib\;$(SolutionDir)math\lib\;$(SolutionDir)util\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mem.lib;lang.lib;io.lib;win.lib;sg.lib;anim.lib;libjpeg.lib;pix.lib;math.lib;util.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lang\lib\;$(SolutionDir)win\lib\;$(SolutionDir)io\lib\;$(SolutionDir)sg\lib\;$(SolutionDir)mem\lib\;$(SolutionDir)anim\lib\;$(SolutionDir)math\lib\;$(SolutionDir)sgu\lib\;$(SolutionDir)pix\lib\;$(SolutionDir)util\lib\;$(SolutionDir)external\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lang.lib;win.lib;io.lib;math.lib;sg.lib;sgu.lib;anim.lib;libjpeg.lib;zlib.lib;pix.lib;util.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>XCOPY "$(SolutionDir)DLL\gd_dx9.dll" "$(IntDir)" /D /K /Y
-XCOPY "$(SolutionDir)DLL\id_dx8.dll" "$(IntDir)" /D /K /Y</Command>
+      <Command>XCOPY "$(SolutionDir)DLL\gd_dx9.dll" "$(IntDir)" /D /K /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

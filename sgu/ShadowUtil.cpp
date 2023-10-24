@@ -59,7 +59,7 @@ P(Primitive) ShadowUtil::createShadowFiller( const Color& color,
 		fillgeom->setVertexDiffuseColors( k, &fillcolr[ fillind[k] ], 1 );
 	}}
 	
-	return fillgeom;
+	return fillgeom.ptr();
 }
 
 void ShadowUtil::setShadowVolumeShaders( Node* scene, Shader* shadowShader )
