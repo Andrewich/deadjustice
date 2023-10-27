@@ -41,43 +41,6 @@ project "lang"
     filter { "system:windows" }
         postbuildcommands { "LIB $(TargetPath) ../lib/mem%{cfg.buildtarget.suffix}.lib" }
 
-project "io"
-    kind "StaticLib"
-    dependson { "lang" }
-
-project "win"
-    kind "StaticLib"
-    dependson { "lang" }
-
-project "util"
-    kind "StaticLib"
-    dependson { "lang" }
-
-project "math"
-    kind "StaticLib"
-    dependson { "lang" }
-
-project "anim"
-    kind "StaticLib"
-    dependson { "lang", "util" }
-
-project "bsp"
-    kind "StaticLib"
-    dependson { "lang", "util", "io", "math" }
-
-project "id"
-    kind "SharedLib"
-    dependson { "lang" }
-    filter { "system:windows" }
-        targetname "%{prj.name}_dx8"
-        defines "ID_DX8_EXPORTS"
-        includedirs "$(DXSDK_DIR)Include"
-        libdirs "$(DXSDK_DIR)Lib\\x86\\"
-        links { "dinput8", "dxguid", "lang" }
-        vpaths { ["id_dx8"] = { "%{prj.name}/%{prj.name}_dx8/*.h", "%{prj.name}/%{prj.name}_dx8/*.cpp" } }
-        files { "%{prj.name}/%{prj.name}_dx8/*.h", "%{prj.name}/%{prj.name}_dx8/*.cpp" }
-        postbuildcommands { "XCOPY \"$(TargetPath)\" ..\\DLL\\ /D /K /Y" }
-
 -- External dependencies
 project "libjpeg"
     kind "StaticLib"
@@ -111,5 +74,80 @@ project "libjpeg"
         "external/%{prj.name}/ckconfig.c",
         "external/%{prj.name}/djpeg.c",
         "external/%{prj.name}/example.c"
-    }    
+    }
+
+project "io"
+    kind "StaticLib"
+    dependson { "lang" }
+
+project "win"
+    kind "StaticLib"
+    dependson { "lang" }
+
+project "util"
+    kind "StaticLib"
+    dependson { "lang" }
+
+project "math"
+    kind "StaticLib"
+    dependson { "lang" }
+
+project "anim"
+    kind "StaticLib"
+    dependson { "lang", "util" }
+
+project "bsp"
+    kind "StaticLib"
+    dependson { "lang", "util", "io", "math" }
+
+project "pix"
+	kind "StaticLib"
+	dependson { "lang", "io", "libjpeg" }
+	includedirs { "external/libjpeg", "%{prj.name}" }
+
+project "id"
+    kind "SharedLib"
+    dependson { "lang" }
+    filter { "system:windows" }
+        targetname "%{prj.name}_dx8"
+        defines "ID_DX8_EXPORTS"
+        includedirs "$(DXSDK_DIR)Include"
+        libdirs "$(DXSDK_DIR)Lib\\x86\\"
+        links { "dinput8", "dxguid", "lang%{cfg.buildtarget.suffix}" }
+        vpaths { ["id_dx8"] = { "%{prj.name}/%{prj.name}_dx8/*.h", "%{prj.name}/%{prj.name}_dx8/*.cpp" } }
+        files { "%{prj.name}/%{prj.name}_dx8/*.h", "%{prj.name}/%{prj.name}_dx8/*.cpp" }
+        postbuildcommands { "XCOPY \"$(TargetPath)\" ..\\DLL\\ /D /K /Y" }
+
+project "gd"
+	kind "SharedLib"
+	dependson { "lang", "pix", "math" }
+	filter { "system:windows" }
+		targetname "%{prj.name}_dx9"
+		defines "GD_DX9_EXPORTS"
+		filter "action:vs*"
+			pchsource "%{prj.name}/%{prj.name}_dx9/StdAfx.cpp"
+			pchheader "StdAfx.h"
+		includedirs { 
+			"$(DXSDK_DIR)Include", 
+			"%{prj.name}/%{prj.name}_dx_common",
+			"%{prj.name}/%{prj.name}_dx9"
+		}
+		libdirs "$(DXSDK_DIR)Lib\\x86\\"
+		links { 
+			"d3d9", "d3dx9",
+			"lang%{cfg.buildtarget.suffix}", 
+			"pix%{cfg.buildtarget.suffix}", 
+			"math%{cfg.buildtarget.suffix}" 
+		}
+		vpaths { 
+			["gd_dx9"] = { "%{prj.name}/%{prj.name}_dx9/*.h", "%{prj.name}/%{prj.name}_dx9/*.cpp" },
+			["gd_dx_common"] = { "%{prj.name}/%{prj.name}_dx_common/*.h", "%{prj.name}/%{prj.name}_dx_common/*.cpp" }
+		}
+		files { 
+			"%{prj.name}/%{prj.name}_dx9/*.h", 
+			"%{prj.name}/%{prj.name}_dx9/*.cpp",
+			"%{prj.name}/%{prj.name}_dx_common/*.h",
+			"%{prj.name}/%{prj.name}_dx_common/*.cpp"
+		}
+		postbuildcommands { "XCOPY \"$(TargetPath)\" ..\\DLL\\ /D /K /Y" }
     
