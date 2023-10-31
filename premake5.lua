@@ -151,3 +151,10 @@ project "gd"
 		}
 		postbuildcommands { "XCOPY \"$(TargetPath)\" ..\\DLL\\ /D /K /Y" }
     
+project "sg"
+    kind "StaticLib"
+    dependson { "lang", "util", "io", "math", "gd", "pix", "anim" }
+
+project "sgu"
+    kind "StaticLib"
+    dependson { "lang", "util", "io", "math", "gd", "pix", "anim", "sg" }
