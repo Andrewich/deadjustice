@@ -4,7 +4,7 @@
 #include "sgviewerView.h"
 #include "sgviewer.h"
 #include "printMemoryState.h"
-#include "version.h"
+//#include "version.h"
 #include <sg/LOD.h>
 #include <sg/Mesh.h>
 #include <sg/Light.h>

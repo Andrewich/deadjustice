@@ -122,7 +122,7 @@ BOOL CSgviewerApp::InitInstance()
 		}
 		FileInputStream in( getExePathFilename("sgviewer.prop") );
 		m_props.load( &in );
-		in.close();
+ 		in.close();
 
 		if ( !m_props.containsKey("RenderingDriver") )
 			throw Exception( Format("RenderingDriver not set in properties") );

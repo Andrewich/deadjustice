@@ -14,7 +14,7 @@ workspace "deadjustice"
         defines { "DEBUG" }
         symbols "On"
         
-        filter { "Debug", "kind:SharedLib or StaticLib" }
+        filter { "Debug" }
             targetsuffix "d"
 
     filter "configurations:Release"
@@ -157,4 +157,42 @@ project "sg"
 
 project "sgu"
     kind "StaticLib"
-    dependson { "lang", "util", "io", "math", "gd", "pix", "anim", "sg" }
+    dependson { "sg" }
+
+project "dev"
+    kind "StaticLib"
+    dependson { "lang", "util" }
+
+project "sgviewer"
+    kind "WindowedApp"
+    targetdir "bin"
+    dependson { "sg", "sgu", "dev" }
+    flags { "MFC" }
+    defines "_AFXDLL"
+    links {         
+        "lang%{cfg.buildtarget.suffix}",
+        "util%{cfg.buildtarget.suffix}",
+        "libjpeg%{cfg.buildtarget.suffix}",
+        "pix%{cfg.buildtarget.suffix}", 
+        "math%{cfg.buildtarget.suffix}",
+        "anim%{cfg.buildtarget.suffix}",
+        "io%{cfg.buildtarget.suffix}",
+        "sg%{cfg.buildtarget.suffix}",
+        "sgu%{cfg.buildtarget.suffix}",
+        "dev%{cfg.buildtarget.suffix}"
+    }
+    filter { "system:windows" }
+        files { "%{prj.name}/*.rc" }
+        postbuildcommands { 
+            "XCOPY ..\\DLL\\mem%{cfg.buildtarget.suffix}.dll \"$(TargetDir)\" /D /K /Y",
+            "XCOPY ..\\DLL\\gd_dx9%{cfg.buildtarget.suffix}.dll \"$(TargetDir)\" /D /K /Y",
+            "XCOPY ..\\sgviewer\\arial.bmp \"$(TargetDir)\" /D /K /Y",
+            "XCOPY ..\\sgviewer\\arial.txt \"$(TargetDir)\" /D /K /Y",
+            "XCOPY ..\\sgviewer\\normalize.dds \"$(TargetDir)\" /D /K /Y",
+            "XCOPY ..\\sgviewer\\lightmap.fx \"$(TargetDir)\" /D /K /Y",
+            "XCOPY ..\\sgviewer\\sgviewer.prop \"$(TargetDir)\" /D /K /Y",
+            "XCOPY ..\\sgviewer\\sgviewer.reg \"$(TargetDir)\" /D /K /Y"
+        }
+    filter "action:vs*"
+        pchsource "%{prj.name}/StdAfx.cpp"
+        pchheader "StdAfx.h"
