@@ -31,6 +31,14 @@ Source code is freely available for personal, academic and commercial
 purposes. See **LICENSE** for details. (based on BSD license from 
 www.opensource.org)
 
+Build
+-----
+```
+conan install . --output-folder=build -s build_type=Debug --build=missing
+cmake -S . --build build/ -G "Visual Studio 16 2019" -DCMAKE_TOOLCHAIN_FILE="conan_toolchain.cmake"
+cmake --build build/ --config Debug
+```
+
 
 Source Code Overview
 --------------------

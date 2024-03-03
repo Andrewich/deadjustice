@@ -9,4 +9,5 @@ project(
     LANGUAGES CXX
 )
 
-add_subdirectory(src/tester)
+add_subdirectory(tests)
+enable_testing()
