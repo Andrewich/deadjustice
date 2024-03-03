@@ -28,7 +28,7 @@ be found from cm-gfx-YYYYMMDD.zip, also at catmother.sourceforge.net.
 License
 -------
 Source code is freely available for personal, academic and commercial 
-purposes. See license_src.txt for details. (based on BSD license from 
+purposes. See **LICENSE** for details. (based on BSD license from 
 www.opensource.org)
 
 
@@ -138,11 +138,11 @@ Unzip those to external/libjpeg, external/lua and external/zlib folders.
 
 Dead Justice Game Prototype Credits
 -----------------------------------
-Game design....... Olli Sorjonen, Sami Sorjonen
-Programming....... Jani Kajala (lead), Toni Aittoniemi
-Graphic content... Olli Sorjonen, Sami Sorjonen
-Level scripting... Olli Sorjonen, Jani Kajala, Toni Aittoniemi
-Testing........... Olli Sorjonen, Jani Kajala, Toni Aittoniemi
+* __Game design__ Olli Sorjonen, Sami Sorjonen
+* __Programming__ Jani Kajala (lead), Toni Aittoniemi
+* __Graphic content__ Olli Sorjonen, Sami Sorjonen
+* __Level scripting__ Olli Sorjonen, Jani Kajala, Toni Aittoniemi
+* __Testing__ Olli Sorjonen, Jani Kajala, Toni Aittoniemi
 
 Dead Justice game prototype uses in-house core technology and 3D-engine,
 developed by Jani Kajala. (All source code is included in this package)
