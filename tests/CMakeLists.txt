@@ -6,11 +6,10 @@ include(Catch)
 
 add_executable(tests)
 
-target_sources(tests PRIVATE 
-    io/pass.cpp
-    lang/pass.cpp)
+target_sources(tests PRIVATE    
+    lang.cpp)
 
-target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain lang)
 target_include_directories(tests PRIVATE "${Catch2_INCLUDE_DIR}")
 
 

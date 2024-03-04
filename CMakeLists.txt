@@ -9,5 +9,9 @@ project(
     LANGUAGES CXX
 )
 
+include_directories(src)
+
+add_subdirectory(src/lang)
+
 add_subdirectory(tests)
 enable_testing()

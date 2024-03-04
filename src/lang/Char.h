@@ -4,8 +4,8 @@
 #include <cstdint>
 
 namespace lang {
-using Char = uint8_t;
-using Char32 = uint32_t;
+using Char = char;
+using Char32 = char32_t;
 }  // namespace lang
 
 #endif  // LANG_CHAR_H_
