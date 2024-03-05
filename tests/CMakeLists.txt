@@ -12,5 +12,4 @@ target_sources(tests PRIVATE
 target_link_libraries(tests PRIVATE Catch2::Catch2WithMain lang)
 target_include_directories(tests PRIVATE "${Catch2_INCLUDE_DIR}")
 
-
 catch_discover_tests(tests)

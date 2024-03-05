@@ -8,6 +8,6 @@ project(
 
 add_library(lang STATIC)
 
-target_sources(lang PRIVATE Character.cpp)
+target_sources(lang PRIVATE Character.cpp String.cpp)
 
 target_compile_features(lang PUBLIC cxx_std_17)
