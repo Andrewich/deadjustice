@@ -3,6 +3,7 @@
 
 #include <lang/Char.h>
 
+#include <span>
 #include <string>
 
 namespace lang {
@@ -35,6 +36,20 @@ class String {
   String(const Char* begin, size_t count);
 
   /**
+   * Creates a string from the byte sequence with specified encoding.
+   * Ignores silently encoded characters which have invalid byte sequences.
+   *
+   * Supported encoding types are
+   *	<pre>
+  ASCII-7         UTF-8           UTF-16BE
+  UTF-16LE        UTF-32BE        UTF-32LE
+          </pre>
+   *
+   * @exception UnsupportedEncodingException
+   */
+  // String(const void* data, int size, const char* encoding);
+
+  /**
    * Creates a string from single character.
    */
   explicit String(Char ch) { m_buffer = ch; }
@@ -50,6 +65,47 @@ class String {
 
   /** Returns number of characters in the string. */
   size_t length() const { return m_buffer.length(); }
+
+  /** Returns character at specified index. */
+  Char charAt(size_t index) const;
+
+  /**
+   * Encodes string content to the buffer using specified encoding method.
+   * Always terminates encoded character string with zero byte.
+   *
+   * @param buffer Pointer to the destination buffer.
+   * @param bufferSize Size of the destination buffer.
+   * @param encoding Encoding type. See constructor String(data,size,encoding)
+   * for a list of supported encoding methods.
+   * @return Number of bytes needed to encode the string, not including trailing
+   * zero. Note that this might be larger than bufferSize.
+   * @exception UnsupportedEncodingException
+   */
+  // int getBytes(void* buffer, int bufferSize, const char* encoding) const;
+
+  /**
+   * Copies characters from this string into the destination character
+   * array/span
+   *
+   * @param begin Index to the beginning (inclusive) of the substring.
+   * @param end Index to the end (exclusive) of the substring.
+   */
+  void getChars(size_t begin, size_t end, std::span<Char> dest) const;
+
+  /**
+   * Returns true if the string ends with specified substring.
+   */
+  bool endsWith(const String& suffix) const;
+
+  /**
+   * Returns true if the string starts with specified substring.
+   */
+  bool startsWith(const String& prefix) const;
+
+  /**
+   * Returns hash code for this string.
+   */
+  int hashCode() const;
 
  private:
   std::basic_string<Char> m_buffer;
