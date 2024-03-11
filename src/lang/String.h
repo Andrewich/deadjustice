@@ -59,9 +59,7 @@ class String {
   String(const String& other) { m_buffer = other.m_buffer; }
 
   /** Move constructor */
-  String(String&& other) : m_buffer{std::move(other.m_buffer)} {
-    std::cout << "Move" << std::endl;
-  }
+  String(String&& other) : m_buffer{std::move(other.m_buffer)} {}
 
   ///
   ~String() {}

@@ -81,4 +81,12 @@ TEST_CASE("String", "[lang]") {
     lang::String subs2{str.substring(2, 4)};
     REQUIRE(subs2.compareTo("llo,"_s) == 0);
   }
+
+  SECTION("to lower case") {
+    REQUIRE(str.toLowerCase().compareTo("hello, world!"_s) == 0);
+  }
+
+  SECTION("to upper case") {
+    REQUIRE(str.toUpperCase().compareTo("HELLO, WORLD!") == 0);
+  }
 }

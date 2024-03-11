@@ -80,8 +80,7 @@ bool String::regionMatches(size_t thisOffset, const String& other,
 }
 
 String String::replace(Char oldChar, Char newChar) const {
-  String str;
-  str.m_buffer = this->m_buffer;
+  String str{m_buffer.c_str()};
 
   std::replace(str.m_buffer.begin(), str.m_buffer.end(), oldChar, newChar);
 
@@ -96,6 +95,20 @@ String String::substring(size_t begin, size_t end) const {
 
 String String::substring(size_t begin) const {
   return substring(begin, length());
+}
+
+String String::toLowerCase() const {
+  String s{m_buffer.c_str()};
+  std::transform(s.m_buffer.begin(), s.m_buffer.end(), s.m_buffer.begin(),
+                 [](unsigned char c) { return std::tolower(c); });
+  return s;
+}
+
+String String::toUpperCase() const {
+  String s{m_buffer.c_str()};
+  std::transform(s.m_buffer.begin(), s.m_buffer.end(), s.m_buffer.begin(),
+                 [](unsigned char c) { return std::toupper(c); });
+  return s;
 }
 
 int String::compareTo(const String& other) const {
