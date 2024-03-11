@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cassert>
+#include <string_view>
 
 //-----------------------------------------------------------------------------
 
@@ -44,6 +45,61 @@ int String::hashCode() const {
   }
 
   return code;
+}
+
+size_t String::indexOf(Char ch, size_t index) const {
+  size_t index_ = m_buffer.find(ch, index);
+  if (index_ == std::string::npos) return -1;
+  return index_;
+}
+
+size_t String::indexOf(const String& str, size_t index) const {
+  size_t index_ = m_buffer.find(str.m_buffer, index);
+  if (index_ == std::string::npos) return -1;
+  return index_;
+}
+
+size_t String::lastIndexOf(Char ch, size_t index) const {
+  size_t index_ = m_buffer.rfind(ch, index);
+  if (index_ == std::string::npos) return -1;
+  return index_;
+}
+
+size_t String::lastIndexOf(const String& str, size_t index) const {
+  size_t index_ = m_buffer.rfind(str.m_buffer, index);
+  if (index_ == std::string::npos) return -1;
+  return index_;
+}
+
+bool String::regionMatches(size_t thisOffset, const String& other,
+                           size_t otherOffset, size_t length) const {
+  std::string_view sv1{m_buffer};
+  std::string_view sv2{other.m_buffer};
+
+  return sv1.substr(thisOffset, length) == sv2.substr(otherOffset, length);
+}
+
+String String::replace(Char oldChar, Char newChar) const {
+  String str;
+  str.m_buffer = this->m_buffer;
+
+  std::replace(str.m_buffer.begin(), str.m_buffer.end(), oldChar, newChar);
+
+  return str;
+}
+
+String String::substring(size_t begin, size_t end) const {
+  String str;
+  str.m_buffer = this->m_buffer.substr(begin, end);
+  return str;
+}
+
+String String::substring(size_t begin) const {
+  return substring(begin, length());
+}
+
+int String::compareTo(const String& other) const {
+  return m_buffer.compare(other.m_buffer);
 }
 
 }  // namespace lang

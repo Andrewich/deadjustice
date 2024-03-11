@@ -54,4 +54,29 @@ TEST_CASE("String", "[lang]") {
     REQUIRE(str.hashCode() != 0);
     REQUIRE(str.hashCode() == 1498789909);
   }
+
+  SECTION("get index") {
+    REQUIRE(str.indexOf(',') == 5);
+    REQUIRE(str.indexOf('l') == 2);
+    REQUIRE(str.indexOf('l', 3) == 3);
+    REQUIRE(str.indexOf('x') == -1);
+    REQUIRE(str.lastIndexOf('o') == 8);
+    REQUIRE(str.lastIndexOf("l") == 10);
+    REQUIRE(str.lastIndexOf('l', 9) == 3);
+  }
+
+  SECTION("check region strings") {
+    REQUIRE(str.regionMatches(7, "This is World fine!", 8, 5));
+    REQUIRE_FALSE(str.regionMatches(0, "This is World fine!", 8, 5));
+  }
+
+  SECTION("replace characters") {
+    lang::String s{str.replace('l', 'z')};
+    REQUIRE(s.compareTo("Hezzo, Worzd!") == 0);
+  }
+
+  SECTION("substring") {
+    lang::String subs{str.substring(7)};
+    REQUIRE(subs.compareTo("World!") == 0);
+  }
 }
