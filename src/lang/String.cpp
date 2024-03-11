@@ -103,3 +103,7 @@ int String::compareTo(const String& other) const {
 }
 
 }  // namespace lang
+
+lang::String operator""_s(const char* str, std::size_t) {
+  return lang::String(str);
+}

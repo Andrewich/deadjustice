@@ -242,4 +242,6 @@ class String {
 
 }  // namespace lang
 
+lang::String operator""_s(const char* str, std::size_t);
+
 #endif  // LANG_STRING_H_

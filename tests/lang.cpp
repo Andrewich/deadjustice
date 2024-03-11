@@ -76,7 +76,9 @@ TEST_CASE("String", "[lang]") {
   }
 
   SECTION("substring") {
-    lang::String subs{str.substring(7)};
-    REQUIRE(subs.compareTo("World!") == 0);
+    lang::String subs1{str.substring(7)};
+    REQUIRE(subs1.compareTo("World!") == 0);
+    lang::String subs2{str.substring(2, 4)};
+    REQUIRE(subs2.compareTo("llo,"_s) == 0);
   }
 }
