@@ -71,15 +71,12 @@ TEST_CASE("String", "[lang]") {
   }
 
   SECTION("replace characters") {
-    lang::String s{str.replace('l', 'z')};
-    REQUIRE(s.compareTo("Hezzo, Worzd!") == 0);
+    REQUIRE(str.replace('l', 'z').compareTo("Hezzo, Worzd!") == 0);
   }
 
   SECTION("substring") {
-    lang::String subs1{str.substring(7)};
-    REQUIRE(subs1.compareTo("World!") == 0);
-    lang::String subs2{str.substring(2, 4)};
-    REQUIRE(subs2.compareTo("llo,"_s) == 0);
+    REQUIRE(str.substring(7).compareTo("World!") == 0);
+    REQUIRE(str.substring(2, 4).compareTo("llo,"_s) == 0);
   }
 
   SECTION("to lower case") {
@@ -88,5 +85,9 @@ TEST_CASE("String", "[lang]") {
 
   SECTION("to upper case") {
     REQUIRE(str.toUpperCase().compareTo("HELLO, WORLD!") == 0);
+  }
+
+  SECTION("trim whitespace character") {
+    REQUIRE(" Hello"_s.trim().compareTo("Hello"_s) == 0);
   }
 }

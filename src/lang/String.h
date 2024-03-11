@@ -26,7 +26,7 @@ class String {
   /**
    * Creates a string from the null-terminated character sequence.
    */
-  String(const Char* str);
+  String(const Char* str) : m_buffer(std::basic_string(str)) {}
 
   /**
    * Creates a string from the character sequence.
@@ -34,7 +34,8 @@ class String {
    * @param begin Pointer to the beginning (inclusive) of the sequence.
    * @param count Number of characters in the sequence.
    */
-  String(const Char* begin, size_t count);
+  String(const Char* begin, size_t count)
+      : m_buffer(std::basic_string(begin, count)) {}
 
   /**
    * Creates a string from the byte sequence with specified encoding.
@@ -235,11 +236,14 @@ class String {
   int compareTo(const String& other) const;
 
  private:
+  /** Move other std::string */
+  String(std::string&& str) : m_buffer{std::move(str)} {}
+
   std::basic_string<Char> m_buffer;
 };
 
 }  // namespace lang
 
-lang::String operator""_s(const char* str, std::size_t);
+lang::String operator""_s(const lang::Char* str, std::size_t);
 
 #endif  // LANG_STRING_H_

@@ -8,11 +8,6 @@
 
 namespace lang {
 
-String::String(const Char* str) : m_buffer(std::basic_string(str)) {}
-
-String::String(const Char* begin, size_t count)
-    : m_buffer(std::basic_string(begin, count)) {}
-
 String& String::operator=(const String& other) {
   m_buffer = other.m_buffer;
   return *this;
@@ -80,17 +75,17 @@ bool String::regionMatches(size_t thisOffset, const String& other,
 }
 
 String String::replace(Char oldChar, Char newChar) const {
-  String str{m_buffer.c_str()};
+  std::string s{m_buffer};
 
-  std::replace(str.m_buffer.begin(), str.m_buffer.end(), oldChar, newChar);
+  std::replace(s.begin(), s.end(), oldChar, newChar);
 
-  return str;
+  return String{std::move(s)};
 }
 
 String String::substring(size_t begin, size_t end) const {
-  String str;
-  str.m_buffer = this->m_buffer.substr(begin, end);
-  return str;
+  String s;
+  s.m_buffer = this->m_buffer.substr(begin, end);
+  return s;
 }
 
 String String::substring(size_t begin) const {
@@ -98,17 +93,31 @@ String String::substring(size_t begin) const {
 }
 
 String String::toLowerCase() const {
-  String s{m_buffer.c_str()};
-  std::transform(s.m_buffer.begin(), s.m_buffer.end(), s.m_buffer.begin(),
+  std::string s{m_buffer};
+
+  std::transform(s.begin(), s.end(), s.begin(),
                  [](unsigned char c) { return std::tolower(c); });
-  return s;
+
+  return String{std::move(s)};
 }
 
 String String::toUpperCase() const {
-  String s{m_buffer.c_str()};
-  std::transform(s.m_buffer.begin(), s.m_buffer.end(), s.m_buffer.begin(),
+  std::string s{m_buffer};
+
+  std::transform(s.begin(), s.end(), s.begin(),
                  [](unsigned char c) { return std::toupper(c); });
-  return s;
+
+  return String{std::move(s)};
+}
+
+String String::trim() const {
+  std::string s{m_buffer};
+
+  s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {
+            return !std::isspace(ch);
+          }));
+
+  return String{std::move(s)};
 }
 
 int String::compareTo(const String& other) const {
