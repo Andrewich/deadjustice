@@ -235,6 +235,35 @@ class String {
    */
   int compareTo(const String& other) const;
 
+  /** Bitwise equality. */
+  bool operator==(const String& other) const { return 0 == compareTo(other); }
+
+  /** Bitwise inequality. */
+  bool operator!=(const String& other) const { return 0 != compareTo(other); }
+
+  /** Bitwise lexicographical less than. */
+  bool operator<(const String& other) const { return compareTo(other) < 0; }
+
+  /** Bitwise lexicographical greater than. */
+  bool operator>(const String& other) const { return compareTo(other) > 0; }
+
+  /** Bitwise lexicographical less or equal. */
+  bool operator<=(const String& other) const { return compareTo(other) <= 0; }
+
+  /** Bitwise lexicographical greater or equal. */
+  bool operator>=(const String& other) const { return compareTo(other) >= 0; }
+
+  /** Concatenates this string and other string. */
+  String operator+(const String& other) const {
+    return String{m_buffer + other.m_buffer};
+  };
+
+  /** Returns string representation of specified value. */
+  static String valueOf(int value);
+
+  /** Returns string representation of specified value. */
+  static String valueOf(float value);
+
  private:
   /** Move other std::string */
   String(std::string&& str) : m_buffer{std::move(str)} {}

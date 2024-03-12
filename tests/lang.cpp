@@ -90,4 +90,16 @@ TEST_CASE("String", "[lang]") {
   SECTION("trim whitespace character") {
     REQUIRE(" Hello"_s.trim().compareTo("Hello"_s) == 0);
   }
+
+  SECTION("comparative operators") {
+    REQUIRE("Hello, World!"_s == str);
+    REQUIRE("WEX"_s > str);
+    REQUIRE_FALSE("Aria"_s > str);
+    REQUIRE(("Hello,"_s + " World!"_s) == str);
+  }
+
+  SECTION("value to string") {
+    REQUIRE(lang::String::valueOf(538) == "538"_s);
+    REQUIRE(lang::String::valueOf(53.234f) == "53.234"_s);
+  }
 }

@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cassert>
+#include <sstream>
 #include <string_view>
 
 //-----------------------------------------------------------------------------
@@ -122,6 +123,14 @@ String String::trim() const {
 
 int String::compareTo(const String& other) const {
   return m_buffer.compare(other.m_buffer);
+}
+
+String String::valueOf(int value) { return String{std::to_string(value)}; }
+
+String String::valueOf(float value) {
+  std::ostringstream os;
+  os << value;
+  return String{std::move(os.str())};
 }
 
 }  // namespace lang
