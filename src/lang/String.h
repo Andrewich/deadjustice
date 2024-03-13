@@ -12,11 +12,11 @@ namespace lang {
 /**
  * Immutable Unicode character string.
  * Note about implementation:
- * Short strings are stored in preallocated buffer (and copied by value)
- * and longer strings are allocated to heap (and copied by reference).
+ * Is a wrapper over the base std class basic_string.
  * Currently String class has only very basic Unicode support
  * (for example toUpperCase simply uses toupper internally).
  * @author Jani Kajala (jani.kajala@helsinki.fi)
+ * @author Egorov Maxim (abd.andrew@gmail.com)
  */
 class String {
  public:
@@ -59,7 +59,7 @@ class String {
   /** Copy by reference. */
   String(const String& other) { m_buffer = other.m_buffer; }
 
-  /** Move constructor */
+  /** Move-constructor */
   String(String&& other) : m_buffer{std::move(other.m_buffer)} {}
 
   ///
@@ -265,7 +265,7 @@ class String {
   static String valueOf(float value);
 
  private:
-  /** Move other std::string */
+  /** Move-constructor from std::string */
   String(std::string&& str) : m_buffer{std::move(str)} {}
 
   std::basic_string<Char> m_buffer;
