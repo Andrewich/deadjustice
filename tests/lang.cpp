@@ -1,5 +1,6 @@
 #include <lang/Character.h>
 #include <lang/String.h>
+#include <lang/UTFConverter.h>
 
 #include <catch2/catch_all.hpp>
 #include <cstring>
@@ -102,4 +103,13 @@ TEST_CASE("String", "[lang]") {
     REQUIRE(lang::String::valueOf(538) == "538"_s);
     REQUIRE(lang::String::valueOf(53.234f) == "53.234"_s);
   }
+}
+
+TEST_CASE("UTFConverter", "[lang]") {
+  using namespace std::string_literals;
+  std::string s{"Привет"};
+  std::wstring ws = {
+      L"\u041F\u0440\u0438\u0432\u0435\u0442"};  // "Привет" word Unicode points
+  std::wstring res = lang::utfconverter::utf8ToUtf16(s);
+  REQUIRE(res == ws);
 }

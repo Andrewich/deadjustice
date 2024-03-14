@@ -38,20 +38,6 @@ class String {
       : m_buffer(std::basic_string(begin, count)) {}
 
   /**
-   * Creates a string from the byte sequence with specified encoding.
-   * Ignores silently encoded characters which have invalid byte sequences.
-   *
-   * Supported encoding types are
-   *	<pre>
-  ASCII-7         UTF-8           UTF-16BE
-  UTF-16LE        UTF-32BE        UTF-32LE
-          </pre>
-   *
-   * @exception UnsupportedEncodingException
-   */
-  // String(const void* data, int size, const char* encoding);
-
-  /**
    * Creates a string from single character.
    */
   explicit String(Char ch) { m_buffer = ch; }
@@ -73,20 +59,6 @@ class String {
 
   /** Returns character at specified index. */
   Char charAt(size_t index) const;
-
-  /**
-   * Encodes string content to the buffer using specified encoding method.
-   * Always terminates encoded character string with zero byte.
-   *
-   * @param buffer Pointer to the destination buffer.
-   * @param bufferSize Size of the destination buffer.
-   * @param encoding Encoding type. See constructor String(data,size,encoding)
-   * for a list of supported encoding methods.
-   * @return Number of bytes needed to encode the string, not including trailing
-   * zero. Note that this might be larger than bufferSize.
-   * @exception UnsupportedEncodingException
-   */
-  // int getBytes(void* buffer, int bufferSize, const char* encoding) const;
 
   /**
    * Copies characters from this string into the destination character
