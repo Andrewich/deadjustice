@@ -5,6 +5,7 @@
 
 namespace lang {
 using Char = char;
+using Char16 = wchar_t;
 using Char32 = char32_t;
 }  // namespace lang
 
