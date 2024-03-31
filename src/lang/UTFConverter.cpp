@@ -2,29 +2,29 @@
 
 #include <Windows.h>  // Win32 Platform SDK main header
 
+#include "String.h"
+
 //-----------------------------------------------------------------------------
 
 namespace lang {
 
 namespace utfconverter {
 
-std::wstring utf8ToUtf16(std::span<char> utf8) {
+std::wstring utf8ToUtf16(const String& utf8) {
   std::wstring utf16;
 
-  if (utf8.empty()) {
+  if (utf8.m_buffer.empty()) {
     return utf16;
   }
 
-  const int utf8Length = static_cast<int>(utf8.size());
-
   // Get the size of the destination UTF-16 string
   const int utf16Length = ::MultiByteToWideChar(
-      CP_UTF8,               // source string is in UTF-8
-      MB_ERR_INVALID_CHARS,  // conversion flags
-      utf8.data(),           // source UTF-8 string pointer
-      utf8Length,            // length of the source UTF-8 string, in chars
-      nullptr,               // unused - no conversion done in this step
-      0                      // request size of destination buffer, in wchar_ts
+      CP_UTF8,                 // source string is in UTF-8
+      MB_ERR_INVALID_CHARS,    // conversion flags
+      utf8.m_buffer.data(),    // source UTF-8 string pointer
+      utf8.m_buffer.length(),  // length of the source UTF-8 string, in chars
+      nullptr,                 // unused - no conversion done in this step
+      0  // request size of destination buffer, in wchar_ts
   );
   if (utf16Length == 0) {
     // Conversion error: capture error code and throw
@@ -35,7 +35,7 @@ std::wstring utf8ToUtf16(std::span<char> utf8) {
             : "Cannot get result string length when converting "
               "from UTF-8 to UTF-16 (MultiByteToWideChar failed).",
         error, Utf8ConversionException::ConversionType::FromUtf8ToUtf16);*/
-    return 0;
+    return utf16;
   }
 
   // Make room in the destination string for the converted bits
@@ -43,12 +43,12 @@ std::wstring utf8ToUtf16(std::span<char> utf8) {
 
   // Do the actual conversion from UTF-8 to UTF-16
   int result = ::MultiByteToWideChar(
-      CP_UTF8,               // source string is in UTF-8
-      MB_ERR_INVALID_CHARS,  // conversion flags
-      utf8.data(),           // source UTF-8 string pointer
-      utf8Length,            // length of source UTF-8 string, in chars
-      &utf16[0],             // pointer to destination buffer
-      utf16Length            // size of destination buffer, in wchar_ts
+      CP_UTF8,                 // source string is in UTF-8
+      MB_ERR_INVALID_CHARS,    // conversion flags
+      utf8.m_buffer.data(),    // source UTF-8 string pointer
+      utf8.m_buffer.length(),  // length of source UTF-8 string, in chars
+      utf16.data(),            // pointer to destination buffer
+      utf16Length              // size of destination buffer, in wchar_ts
   );
   if (result == 0) {
     // Conversion error: capture error code and throw
@@ -59,7 +59,7 @@ std::wstring utf8ToUtf16(std::span<char> utf8) {
             : "Cannot convert from UTF-8 to UTF-16 "
               "(MultiByteToWideChar failed).",
         error, Utf8ConversionException::ConversionType::FromUtf8ToUtf16);*/
-    return std::wstring();
+    return utf16;
   }
 
   return utf16;

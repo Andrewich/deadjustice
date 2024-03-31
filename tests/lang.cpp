@@ -110,17 +110,13 @@ TEST_CASE("UTFConverter", "[lang]") {
       L"\u041F\u0440\u0438\u0432\u0435\u0442"};  // "Привет" word Unicode
                                                  // points
 
-  SECTION("Std strings convert") {
-    std::string s{"Привет"};
-    std::wstring res = lang::utfconverter::utf8ToUtf16(s);
+  SECTION("to UTF-16 convert") {
+    std::wstring res;
 
+    res = lang::utfconverter::utf8ToUtf16(lang::String{"Привет"});
     REQUIRE(res == ws);
+
+    res = lang::utfconverter::utf8ToUtf16(lang::String{"Бривед"});
+    REQUIRE_FALSE(res == ws);
   }
-
-  /*SECTION("Lang string convert") {
-    lang::String s{"Привет"};
-    std::wstring res = lang::utfconverter::utf8ToUtf16(s);
-
-    REQUIRE(res = ws);
-  }*/
 }

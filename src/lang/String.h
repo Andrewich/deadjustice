@@ -2,6 +2,7 @@
 #define LANG_STRING_H_
 
 #include <lang/Char.h>
+#include <lang/UTFConverter.h>
 
 #include <iostream>
 #include <span>
@@ -19,6 +20,8 @@ namespace lang {
  * @author Egorov Maxim (abd.andrew@gmail.com)
  */
 class String {
+  friend std::wstring utfconverter::utf8ToUtf16(const String& utf8);
+
  public:
   /** Creates an empty string. */
   String() = default;
