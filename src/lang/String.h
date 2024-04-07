@@ -58,10 +58,10 @@ class String {
   String& operator=(const String& other);
 
   /** Returns number of characters in the string. */
-  size_t length() const { return m_buffer.length(); }
+  int length() const { return std::ssize(m_buffer); }
 
   /** Returns character at specified index. */
-  Char charAt(size_t index) const;
+  Char charAt(int index) const;
 
   /**
    * Copies characters from this string into the destination character
@@ -96,7 +96,7 @@ class String {
    * @return Index of the found position or -1 if the character was not found
    * from the string.
    */
-  size_t indexOf(Char ch, size_t index = 0) const;
+  int indexOf(Char ch, size_t index = 0) const;
 
   /**
    * Returns the first index within this string of the specified substring.
@@ -107,7 +107,7 @@ class String {
    * @return Index of the found position or -1 if the substring was not found
    * from the string.
    */
-  size_t indexOf(const String& str, size_t index = 0) const;
+  int indexOf(const String& str, size_t index = 0) const;
 
   /**
    * Returns the last index within this string of the specified character.
@@ -116,7 +116,7 @@ class String {
    * @return Index of the found position or -1 if the character was not found
    * from the string.
    */
-  size_t lastIndexOf(Char ch) const {
+  int lastIndexOf(Char ch) const {
     return lastIndexOf(ch, m_buffer.length() - 1);
   }
 
@@ -129,7 +129,7 @@ class String {
    * @return Index of the found position or -1 if the character was not found
    * from the string.
    */
-  size_t lastIndexOf(Char ch, size_t index) const;
+  int lastIndexOf(Char ch, size_t index) const;
 
   /**
    * Returns the last index within this string of the specified substring.
@@ -138,7 +138,7 @@ class String {
    * @return Index of the found position or -1 if the substring was not found
    * from the string.
    */
-  size_t lastIndexOf(const String& str) const {
+  int lastIndexOf(const String& str) const {
     return lastIndexOf(str, m_buffer.length() - 1);
   }
 
@@ -151,7 +151,7 @@ class String {
    * @return Index of the found position or -1 if the substring was not found
    * from the string.
    */
-  size_t lastIndexOf(const String& str, size_t index) const;
+  int lastIndexOf(const String& str, size_t index) const;
 
   /**
    * Tests if two string regions are equal.

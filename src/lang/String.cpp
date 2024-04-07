@@ -14,11 +14,13 @@ String& String::operator=(const String& other) {
   return *this;
 }
 
-Char String::charAt(size_t index) const { return m_buffer[index]; }
+Char String::charAt(int index) const { return m_buffer[index]; }
 
 void String::getChars(size_t begin, size_t end, std::span<Char> dest) const {
   auto it_begin = m_buffer.begin() + begin;
   auto it_end = m_buffer.begin() + end + 1;
+
+  assert(end > begin);
 
   std::copy(it_begin, it_end, dest.begin());
   dest.back() = '\0';
@@ -43,28 +45,28 @@ int String::hashCode() const {
   return code;
 }
 
-size_t String::indexOf(Char ch, size_t index) const {
+int String::indexOf(Char ch, size_t index) const {
   size_t index_ = m_buffer.find(ch, index);
   if (index_ == std::string::npos) return -1;
-  return index_;
+  return static_cast<int>(index_);
 }
 
-size_t String::indexOf(const String& str, size_t index) const {
+int String::indexOf(const String& str, size_t index) const {
   size_t index_ = m_buffer.find(str.m_buffer, index);
   if (index_ == std::string::npos) return -1;
-  return index_;
+  return static_cast<int>(index_);
 }
 
-size_t String::lastIndexOf(Char ch, size_t index) const {
+int String::lastIndexOf(Char ch, size_t index) const {
   size_t index_ = m_buffer.rfind(ch, index);
   if (index_ == std::string::npos) return -1;
-  return index_;
+  return static_cast<int>(index_);
 }
 
-size_t String::lastIndexOf(const String& str, size_t index) const {
+int String::lastIndexOf(const String& str, size_t index) const {
   size_t index_ = m_buffer.rfind(str.m_buffer, index);
   if (index_ == std::string::npos) return -1;
-  return index_;
+  return static_cast<int>(index_);
 }
 
 bool String::regionMatches(size_t thisOffset, const String& other,
