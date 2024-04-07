@@ -14,8 +14,6 @@ namespace lang {
  * Immutable Unicode character string.
  * Note about implementation:
  * Is a wrapper over the base std class basic_string.
- * Currently String class has only very basic Unicode support
- * (for example toUpperCase simply uses toupper internally).
  * @author Jani Kajala (jani.kajala@helsinki.fi)
  * @author Egorov Maxim (abd.andrew@gmail.com)
  */
