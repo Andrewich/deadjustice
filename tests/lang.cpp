@@ -111,12 +111,21 @@ TEST_CASE("UTFConverter", "[lang]") {
                                                  // points
 
   SECTION("to UTF-16 convert") {
-    std::wstring res;
+    {
+      std::wstring res =
+          lang::utfconverter::utf8ToUtf16(lang::String{"Привет"});
+      REQUIRE(res == ws);
+    }
 
-    res = lang::utfconverter::utf8ToUtf16(lang::String{"Привет"});
-    REQUIRE(res == ws);
+    {
+      std::wstring res =
+          lang::utfconverter::utf8ToUtf16(lang::String{"Бривед"});
+      REQUIRE_FALSE(res == ws);
+    }
+  }
 
-    res = lang::utfconverter::utf8ToUtf16(lang::String{"Бривед"});
-    REQUIRE_FALSE(res == ws);
+  SECTION("to UTF-8 convert") {
+    lang::String res = lang::utfconverter::utf16ToUtf8(ws);
+    REQUIRE(res == lang::String{"Привет"});
   }
 }

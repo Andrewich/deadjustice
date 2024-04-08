@@ -19,6 +19,7 @@ namespace lang {
  */
 class String {
   friend std::wstring utfconverter::utf8ToUtf16(const String& utf8);
+  friend lang::String utfconverter::utf16ToUtf8(const std::wstring& utf16);
 
  public:
   /** Creates an empty string. */
