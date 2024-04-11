@@ -11,7 +11,9 @@ project(
 
 set(CMAKE_DEBUG_POSTFIX d)
 
+add_compile_definitions(_MBCS)
 include_directories(src src/config/msvc6)
 
 add_subdirectory(src/mem)
 add_subdirectory(src/lang)
+add_subdirectory(src/io)

@@ -8,7 +8,7 @@ project(
 
 add_library(lang STATIC)
 
-add_compile_definitions(LANG_WIN32 _MBCS)
+add_compile_definitions(LANG_WIN32)
 
 include_directories(internal)
 
@@ -39,4 +39,6 @@ target_sources(lang
 if(MSVC)
     add_custom_command(TARGET lang POST_BUILD
         COMMAND LIB.exe "$<TARGET_FILE:lang>" "$<TARGET_IMPORT_FILE:mem>")
+
+    #target_compile_options(lang PRIVATE "/wd4006")
 endif()
