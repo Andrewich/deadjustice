@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.29)
 
 project(
     deadjustice
@@ -14,3 +14,4 @@ set(CMAKE_DEBUG_POSTFIX d)
 include_directories(src src/config/msvc6)
 
 add_subdirectory(src/mem)
+add_subdirectory(src/lang)
