@@ -17,3 +17,7 @@ include_directories(src src/config/msvc6)
 add_subdirectory(src/mem)
 add_subdirectory(src/lang)
 add_subdirectory(src/io)
+add_subdirectory(src/win)
+
+# Examples
+add_subdirectory(examples/win)
