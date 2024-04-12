@@ -15,6 +15,7 @@ add_compile_definitions(_MBCS)
 
 # External library
 add_subdirectory(external/zlib)
+add_subdirectory(external/libjpeg)
 
 include_directories(src src/config/msvc6)
 
