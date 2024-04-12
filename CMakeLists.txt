@@ -12,6 +12,10 @@ project(
 set(CMAKE_DEBUG_POSTFIX d)
 
 add_compile_definitions(_MBCS)
+
+# External library
+add_subdirectory(external/zlib)
+
 include_directories(src src/config/msvc6)
 
 add_subdirectory(src/mem)
