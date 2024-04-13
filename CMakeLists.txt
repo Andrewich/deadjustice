@@ -23,6 +23,7 @@ add_subdirectory(src/mem)
 add_subdirectory(src/lang)
 add_subdirectory(src/io)
 add_subdirectory(src/win)
+add_subdirectory(src/util)
 
 # Examples
 add_subdirectory(examples/win)
