@@ -24,6 +24,7 @@ add_subdirectory(src/lang)
 add_subdirectory(src/io)
 add_subdirectory(src/win)
 add_subdirectory(src/util)
+add_subdirectory(src/math)
 
 # Examples
 add_subdirectory(examples/win)
