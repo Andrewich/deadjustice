@@ -25,6 +25,7 @@ add_subdirectory(src/io)
 add_subdirectory(src/win)
 add_subdirectory(src/util)
 add_subdirectory(src/math)
+add_subdirectory(src/anim)
 
 # Examples
 add_subdirectory(examples/win)
