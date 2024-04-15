@@ -9,6 +9,8 @@ project(
     LANGUAGES CXX
 )
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+
 set(CMAKE_DEBUG_POSTFIX d)
 
 add_compile_definitions(_MBCS)
@@ -29,6 +31,7 @@ add_subdirectory(src/anim)
 add_subdirectory(src/bsp)
 add_subdirectory(src/mb)
 add_subdirectory(src/pix)
+add_subdirectory(src/gd)
 
 # Examples
 add_subdirectory(examples/win)
