@@ -32,6 +32,7 @@ add_subdirectory(src/bsp)
 add_subdirectory(src/mb)
 add_subdirectory(src/pix)
 add_subdirectory(src/gd)
+add_subdirectory(src/sg)
 
 # Examples
 add_subdirectory(examples/win)
