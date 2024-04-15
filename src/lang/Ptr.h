@@ -40,7 +40,7 @@ public:
 	Ptr<T>& operator=( const Ptr<T>& other )										{T* obj = other.ptr(); if ( obj ) obj->addReference(); if ( m_object ) m_object->release(); m_object = obj; return *this;}
 
 	/** Returns true if the references point to the same unique object. */
-	bool	operator==( const T* other ) const										{return m_object == other;}
+	bool	operator==( T* other ) const											{return m_object == other;}	
 
 	/** Returns true if the references point to the same unique object. */
 	bool	operator==( const Ptr<T>& other ) const									{return m_object == other.m_object;}
