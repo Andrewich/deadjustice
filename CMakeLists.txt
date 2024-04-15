@@ -33,6 +33,7 @@ add_subdirectory(src/mb)
 add_subdirectory(src/pix)
 add_subdirectory(src/gd)
 add_subdirectory(src/sg)
+add_subdirectory(src/sgu)
 
 # Examples
 add_subdirectory(examples/win)
