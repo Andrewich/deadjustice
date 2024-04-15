@@ -28,6 +28,7 @@ add_subdirectory(src/math)
 add_subdirectory(src/anim)
 add_subdirectory(src/bsp)
 add_subdirectory(src/mb)
+add_subdirectory(src/pix)
 
 # Examples
 add_subdirectory(examples/win)
