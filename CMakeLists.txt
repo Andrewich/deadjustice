@@ -13,7 +13,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 set(CMAKE_DEBUG_POSTFIX d)
 
-add_compile_definitions(_MBCS)
+if (MSVC)    
+    add_compile_definitions(_MBCS)
+endif()
 
 # External library
 add_subdirectory(external/zlib)
@@ -35,6 +37,7 @@ add_subdirectory(src/gd)
 add_subdirectory(src/sg)
 add_subdirectory(src/sgu)
 add_subdirectory(src/dev)
+add_subdirectory(src/sgviewer)
 
 # Examples
 add_subdirectory(examples/win)

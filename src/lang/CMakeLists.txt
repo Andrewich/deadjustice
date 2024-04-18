@@ -39,6 +39,4 @@ target_sources(lang
 if(MSVC)
     add_custom_command(TARGET lang POST_BUILD
         COMMAND LIB.exe "$<TARGET_FILE:lang>" "$<TARGET_IMPORT_FILE:mem>")
-
-    #target_compile_options(lang PRIVATE "/wd4006")
 endif()
