@@ -33,12 +33,13 @@ MEM_API void*		mem_allocate( int n, const char* file, int line );
 MEM_API void		mem_free( void* p );
 
 
-#if defined(NDEBUG) && !defined(MEM_EXPORTS)
+/*#if defined(NDEBUG) && !defined(MEM_EXPORTS)
 	#include "raw.inl"
 #else
 	#define MEM_ALLOCATE( BYTES ) mem_allocate(BYTES,__FILE__,__LINE__)
 	#define mem_alloc MEM_ALLOCATE
-#endif
+#endif*/
+#include "raw.inl"
 
 
 #endif // _MEM_RAW_H

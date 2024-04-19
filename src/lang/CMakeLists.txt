@@ -35,8 +35,3 @@ target_sources(lang
         Thread.cpp 
         Throwable.cpp
         UTFConverter.cpp)
-
-if(MSVC)
-    add_custom_command(TARGET lang POST_BUILD
-        COMMAND LIB.exe "$<TARGET_FILE:lang>" "$<TARGET_IMPORT_FILE:mem>")
-endif()

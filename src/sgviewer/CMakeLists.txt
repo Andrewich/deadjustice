@@ -26,8 +26,7 @@ target_link_libraries(sgviewer lang win util io math anim dev libjpeg pix gd_dx9
 
 add_custom_command(TARGET sgviewer POST_BUILD
         COMMAND 
-        ${CMAKE_COMMAND} -E copy_if_different 
-            $<TARGET_FILE:mem> 
+        ${CMAKE_COMMAND} -E copy_if_different
             $<TARGET_FILE:gd_dx9> 
             "${PROJECT_SOURCE_DIR}/sgviewer.prop"
             "${PROJECT_SOURCE_DIR}/arial.txt"

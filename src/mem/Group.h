@@ -147,10 +147,10 @@ MEM_API int		mem_flags();
 MEM_API int		mem_printAllocatedBlocks();
 
 
-#if defined(NDEBUG) && !defined(MEM_EXPORTS)
+/*#if defined(NDEBUG) && !defined(MEM_EXPORTS)
+	#include "Group.inl"
+#endif*/
 #include "Group.inl"
-#endif
-//#include "Group.inl"
 
 
 #endif // _MEM_GROUP_H

@@ -6,11 +6,8 @@ project(
     LANGUAGES C
 )
 
-add_library(mem SHARED)
+add_library(mem INTERFACE)
 
 add_compile_definitions(MEM_EXPORTS)
 
-include_directories(internal)
-
-target_sources(mem 
-    PRIVATE internal/error.c internal/testAndSet.c internal/Vector.c Group.c raw.c)
+include_directories(internal ${PROJECT_SOURCE_DIR})
