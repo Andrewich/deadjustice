@@ -57,12 +57,17 @@ if(WIN32) # The only platform it makes sense to check for DirectX9 SDK
   find_library(DirectX9_D3DX9_LIBRARY NAMES d3dx9 HINTS ${DirectX9_LIB_SEARCH_PATH} PATH_SUFFIXES ${DirectX9_LIBPATH_SUFFIX})
   find_library(DirectX9_DXERR_LIBRARY NAMES DxErr HINTS ${DirectX9_LIB_SEARCH_PATH} PATH_SUFFIXES ${DirectX9_LIBPATH_SUFFIX})
   find_library(DirectX9_DXGUID_LIBRARY NAMES dxguid HINTS ${DirectX9_LIB_SEARCH_PATH} PATH_SUFFIXES ${DirectX9_LIBPATH_SUFFIX})
+  find_library(DirectX9_DINPUT_LIBRARY NAMES dinput8 HINTS ${DirectX9_LIB_SEARCH_PATH} PATH_SUFFIXES ${DirectX9_LIBPATH_SUFFIX})
   find_program(DirectX9_FXC_TOOL NAMES fxc HINTS ${DirectX9_PREFIX_PATH} PATH_SUFFIXES Utilities/bin/${DirectX9_LIBPATH_SUFFIX})
   
   findpkg_finish(DirectX9)
   set(DirectX9_LIBRARIES ${DirectX9_LIBRARIES} 
     ${DirectX9_D3DX9_LIBRARY}
     ${DirectX9_DXERR_LIBRARY}
+    ${DirectX9_DXGUID_LIBRARY}
+  )
+  set(DInput_LIBRARIES ${DInput_LIBRARIES}
+    ${DirectX9_DINPUT_LIBRARY}
     ${DirectX9_DXGUID_LIBRARY}
   )
   
