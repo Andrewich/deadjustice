@@ -95,6 +95,7 @@ int Dx9Effect::create( gd::GraphicsDevice* device, const void* data, int size )
 	DWORD flags = D3DXSHADER_PACKMATRIX_COLUMNMAJOR;
 //#ifdef _DEBUG
 	flags |= D3DXSHADER_DEBUG;
+	flags |= D3DXSHADER_ENABLE_BACKWARDS_COMPATIBILITY;
 //#endif
 	HRESULT hr = D3DXCreateEffect( m_dev->d3dDevice(), data, size, defines, includeLoader, flags, effectPool, &m_fx, &xerr );
 
