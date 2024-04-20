@@ -23,6 +23,8 @@ add_subdirectory(external/libjpeg)
 
 include_directories(src src/config/msvc6)
 
+find_package(DirectX9)
+
 add_subdirectory(src/mem)
 add_subdirectory(src/lang)
 add_subdirectory(src/io)

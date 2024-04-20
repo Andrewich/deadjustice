@@ -10,7 +10,6 @@ project(
 add_library(gd_dx9 SHARED)
 add_compile_definitions(GD_DX9_EXPORTS)
 
-find_package(DirectX9)
 include_directories(gd_dx_common ${PROJECT_SOURCE_DIR}/gd_dx9 ${DirectX9_INCLUDE_DIR})
 
 target_sources(gd_dx9 

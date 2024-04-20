@@ -10,7 +10,6 @@ project(
 add_library(sd_dx8 SHARED)
 add_compile_definitions(SD_DX8_EXPORTS)
 
-find_package(DirectX9)
 include_directories(${PROJECT_SOURCE_DIR} sd_dx8 ${DirectX9_INCLUDE_DIR})
 
 target_sources(sd_dx8 
