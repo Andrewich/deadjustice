@@ -39,6 +39,7 @@ add_subdirectory(src/sgu)
 add_subdirectory(src/dev)
 add_subdirectory(src/sgviewer)
 add_subdirectory(src/id)
+add_subdirectory(src/ps)
 
 # Examples
 add_subdirectory(examples/win)
