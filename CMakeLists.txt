@@ -44,6 +44,7 @@ add_subdirectory(src/id)
 add_subdirectory(src/ps)
 add_subdirectory(src/sd)
 add_subdirectory(src/snd)
+add_subdirectory(src/music)
 
 # Examples
 add_subdirectory(examples/win)
