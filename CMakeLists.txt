@@ -20,6 +20,7 @@ endif()
 # External library
 add_subdirectory(external/zlib)
 add_subdirectory(external/libjpeg)
+add_subdirectory(external/lua)
 
 include_directories(src src/config/msvc6)
 
