@@ -47,6 +47,7 @@ add_subdirectory(src/sd)
 add_subdirectory(src/snd)
 add_subdirectory(src/music)
 add_subdirectory(src/script)
+add_subdirectory(src/fsm)
 
 # Examples
 add_subdirectory(examples/win)
