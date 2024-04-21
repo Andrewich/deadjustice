@@ -49,6 +49,7 @@ add_subdirectory(src/music)
 add_subdirectory(src/script)
 add_subdirectory(src/fsm)
 add_subdirectory(src/crypt)
+add_subdirectory(src/deadjustice)
 
 # Examples
 add_subdirectory(examples/win)
