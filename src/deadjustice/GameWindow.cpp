@@ -67,7 +67,7 @@ void GameWindow::init( const char* wndTitle, HINSTANCE inst )
 	int		bitsPerPixel	= m_cfg->getInteger("Display.BitsPerPixel");
 	int		refreshRate		= m_cfg->getInteger("Display.RefreshRate");
 
-	create( "wc.deadjustice.catmother", wndTitle, width, height, bitsPerPixel>0, inst, IDI_ICON1 );
+	create("wc.deadjustice.catmother", wndTitle, width, height, false, inst, IDI_ICON1);
 
 	// set default settings which should not be saved
 	m_cfg->setBoolean( "Game.Pause", false );
