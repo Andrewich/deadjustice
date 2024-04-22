@@ -60,7 +60,6 @@ target_sources(deadjustice
     TextureAnimation.cpp
     TextureSequence.cpp
     Timer.cpp
-    UserControl.cpp
-    Script1.rc)
+    UserControl.cpp)
 
-#target_link_libraries(deadjustice lang win util io math anim dev libjpeg pix gd_dx9 sg sgu)
+target_link_libraries(deadjustice lang win util io math bsp anim dev libjpeg pix gd_dx9 mb sg sgu ps id_dx8 sd_dx8 snd music lua script fsm crypt)
