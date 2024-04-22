@@ -1,6 +1,8 @@
 #include "RestoreStack.h"
 #include <script/VM.h>
-#include <lua.h>
+extern "C" {
+	#include <lua.h>
+}
 #include "config.h"
 
 //-----------------------------------------------------------------------------

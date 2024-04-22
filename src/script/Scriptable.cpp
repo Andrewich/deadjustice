@@ -8,7 +8,9 @@
 #include <util/Vector.h>
 #include <script/VM.h>
 #include <script/ScriptException.h>
-#include <lua.h>
+extern "C" {
+	#include <lua.h>
+}
 #include <algorithm>
 #include "config.h"
 

@@ -4,13 +4,17 @@
 #include <dev/TimeStamp.h>
 #include <lang/Array.h>
 #include <lang/Debug.h>
-#include <lualib.h>
-#include <luadebug.h>
+extern "C" {
+	#include <lualib.h>
+	#include <luadebug.h>
+}
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-#include <lua.h>
+extern "C" {
+	#include <lua.h>
+}
 #include "config.h"
 
 //#define LUA_DEBUG

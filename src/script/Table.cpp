@@ -4,7 +4,9 @@
 #include "RestoreStack.h"
 #include <lang/Array.h>
 #include <script/ScriptException.h>
-#include <lua.h>
+extern "C" {
+	#include <lua.h>
+}
 #include <string.h>
 #include "config.h"
 
