@@ -118,7 +118,8 @@ void GameProjectile::checkCollisionsAgainstObjects( const Vector3& start, const 
 
 		// character ( don't check collision against character which holds weapon this projectile was shot with )
 		GameCharacter* character = dynamic_cast<GameCharacter*>( obj );
-		if ( character && m_hitCharacter && m_weapon != character->weapon() )
+		const P(GameWeapon) character_weapon = character->weapon();
+		if ( character && m_hitCharacter && m_weapon != character_weapon )
 		{
 			if ( character->rootCollisionBox().findLineBoxIntersection(start,delta,0) )
 			{
