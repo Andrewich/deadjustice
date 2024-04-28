@@ -82,8 +82,8 @@ public:
 			gdbuf += gd::GraphicsDevice::SURFACE_STENCIL;
 
 		gd::GraphicsDevice::WindowType gdwin = gd::GraphicsDevice::WINDOW_DESKTOP;
-		if ( bitsPerPixel > 0 )
-			gdwin = gd::GraphicsDevice::WINDOW_FULLSCREEN;
+		//if ( bitsPerPixel > 0 )
+		//	gdwin = gd::GraphicsDevice::WINDOW_FULLSCREEN;
 
 		dev = drv->createGraphicsDevice();
 		int err = dev->create( width, height, bitsPerPixel, refreshRate,
