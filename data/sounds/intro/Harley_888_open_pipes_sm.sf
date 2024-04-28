@@ -1,0 +1,21 @@
+# Control sound in 3D? Default is 2D.
+Control3D
+
+# .wav data file
+WaveFile intro/Harley_888_open_pipes_sm2.wav
+
+# 1=true, 0=false
+Looping 0
+
+# volume attenuation in dB, -100=min, 0=max
+Volume -5
+
+# playback frequency, 100-100000
+# if not exist then default is taken from file
+# Frequency 22000
+
+# distance (meters) where the sound cant be heard at all
+MaxDistance 200
+
+# distance (meters) where the sound can be heard at full volume
+MinDistance 40

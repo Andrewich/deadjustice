@@ -1,0 +1,40 @@
+LocalSpace 0
+EmissionRate 200
+ActivationTime 0
+EmissionTime 0.15
+SystemLifeTime 2
+ParticleLifeTime 1
+MaxParticles 100
+Gravity 9.5
+
+VelocitySphere 0 0 5 1
+	# VelocitySphere x y z r
+	# VelocityBox minx miny minz maxx maxy maxz
+
+PositionBox -0.1 0 -0.1 0.1 0 0.1
+
+#PositionSphere 0 0 -0.05 0
+	# PositionSphere x y z r
+	# PositionBox minx miny minz maxx maxy maxz
+
+Kill OLDEST
+	# NOTHING, RANDOM, OLDEST
+
+# Blend <mode>, mode={ADD,MUL}
+Blend MUL
+
+BoundSphere 3
+# Particle bounding sphere
+
+ImageAnim generic_effects/blood_splat.dds 2 4 8 30 LIFE
+# ImageAnim <file> <rows> <columns> <total frames> <fps> <behaviour = RANDOM, LIFE, LOOP, MIRROR>
+# example ImageAnim images/trail_ball_fade.tga 2 2 4 0 LIFE
+
+Size 0.05 0.3
+	# Size min max
+
+Angle -180 180
+	# Angle <min deg> <max deg>
+
+AngleSpeed 360 360
+	# AngleSpeed <min deg/s> <max deg/s>

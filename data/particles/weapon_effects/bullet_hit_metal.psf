@@ -1,0 +1,15 @@
+LocalSpace 0
+EmissionRate 3000
+SystemLifeTime 1.0
+EmissionTime 0.05
+ParticleLifeTime 0.2
+MaxParticles 20
+VelocitySphere 0 0 0 5
+PositionSphere 0 0 0 0.02
+Gravity 9.8
+Kill NOTHING
+Image weapon_effects/bullet_hit_metal.dds
+Size 0.01 0.03
+BoundSphere 1
+SpeedScale 0.05
+Blend ADD

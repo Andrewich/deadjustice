@@ -1,0 +1,20 @@
+# Control sound in 3D? Default is 2D.
+Control3D
+
+# .wav data file
+WaveFile environment/ambient_1.wav
+
+# 1=true, 0=false
+Looping 1
+
+# volume attenuation in dB, -100=min, 0=max
+Volume -8
+
+# playback frequency, 100-100000
+# if not exist then default is taken from file
+
+# distance (meters) where the sound can be heard at all
+MaxDistance 500
+
+# distance (meters) where the sound can be heard at full volume
+MinDistance 500

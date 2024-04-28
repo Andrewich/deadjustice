@@ -1,0 +1,23 @@
+Count hero/running_metal{0}.sf 2
+
+# Control sound in 3D? Default is 2D.
+Control3D
+
+# .wav data file
+WaveFile hero/running_metal{0}.wav
+
+# 1=true, 0=false
+Looping 0
+
+# volume attenuation in dB, -100=min, 0=max
+Volume 0
+
+# playback frequency, 100-100000
+# if not exist then default is taken from file
+# Frequency 44100
+
+# distance (meters) where the sound can be heard at all
+MaxDistance 40
+
+# distance (meters) where the sound can be heard at full volume
+MinDistance 4

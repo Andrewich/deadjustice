@@ -1,0 +1,34 @@
+LocalSpace 0
+EmissionRate 40
+ActivationTime 0
+EmissionTime 0.1
+SystemLifeTime 1
+ParticleLifeTime 1
+MaxParticles 5
+Gravity 0
+Blend MUL
+
+VelocitySphere 0.3 0 0 0.2
+	# VelocitySphere x y z r
+	# VelocityBox minx miny minz maxx maxy maxz
+
+PositionSphere 0 0 0 0.1
+	# PositionSphere x y z r
+	# PositionBox minx miny minz maxx maxy maxz
+
+Kill RANDOM
+	# NOTHING, RANDOM, OLDEST
+
+
+ImageAnim weapon_effects/gun_smoke.dds 4 8 25 30 LIFE
+#Image images/Weapon_effects/gun_smoke.dds
+# ImageAnim <file> <rows> <columns> <total frames> <fps> <behaviour = RANDOM, LIFE, LOOP, MIRROR>
+
+Size 1.5 1.5
+	# Size min max
+
+Angle -180 180
+	# Angle <min deg> <max deg>
+
+AngleSpeed 20 20
+	# AngleSpeed <min deg/s> <max deg/s>

@@ -1,0 +1,27 @@
+LocalSpace 0
+EmissionRate 300
+SystemLifeTime 0.7
+EmissionTime 0.2
+ParticleLifeTime 0.3
+MaxParticles 15
+VelocitySphere 0 2 0 5
+PositionSphere 0 0 0 0.02
+
+Gravity 30
+
+Kill NOTHING
+	
+	# ImageAnim <file> <rows> <columns> <total frames> <fps> <behaviour = RANDOM, LIFE, LOOP, MIRROR>
+	ImageAnim weapon_effects/bullet_hit_stone.dds 2 4 8 0 RANDOM
+
+Size 0.06 0.1
+BoundSphere 1
+
+Angle -360 360
+	# Angle <min deg> <max deg>
+
+AngleSpeed -360 360
+	# AngleSpeed <min deg/s> <max deg/s>
+
+Blend MUL
+	# Blend <mode>, mode={ADD,MUL}

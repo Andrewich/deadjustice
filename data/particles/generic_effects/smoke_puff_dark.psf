@@ -1,0 +1,38 @@
+LocalSpace 0
+EmissionRate 30
+ActivationTime 0
+EmissionTime 2.0
+SystemLifeTime 5
+ParticleLifeTime 2.0
+# MaxParticles 40
+MaxParticles 100
+Gravity 0.2
+
+BoundSphere 20
+
+VelocitySphere 0 2.5 0 1
+	# VelocitySphere x y z r
+	# VelocityBox minx miny minz maxx maxy maxz
+
+PositionBox -.1 0 -.1 .1 0 .1
+	# PositionSphere x y z r
+	# PositionBox minx miny minz maxx maxy maxz
+
+Kill OLDEST
+	# NOTHING, RANDOM, OLDEST
+
+ImageAnim generic_effects/smoke_puff_dark.dds 4 8 31 25 LIFE
+# ImageAnim <file> <rows> <columns> <total frames> <fps> <behaviour = RANDOM, LIFE, LOOP, MIRROR>
+
+Size 2.5 4.0
+    # Size 1 2.3
+	# Size min max
+
+Angle 0 0
+	# Angle <min deg> <max deg>
+
+AngleSpeed -15 15
+	# AngleSpeed <min deg/s> <max deg/s>
+
+Blend MUL
+	# Blend <mode>, mode={ADD,MUL}
