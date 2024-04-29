@@ -63,3 +63,20 @@ target_sources(deadjustice
     UserControl.cpp)
 
 target_link_libraries(deadjustice lang win util io math bsp anim dev libjpeg pix gd_dx9 mb sg sgu ps id_dx8 sd_dx8 snd music lua script fsm crypt)
+
+add_custom_command(TARGET deadjustice POST_BUILD
+        COMMAND 
+        ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_SOURCE_DIR}/DLL/d3dx9d.dll"
+            "${CMAKE_SOURCE_DIR}/DLL/gd_dx9d.dll"
+            "${CMAKE_SOURCE_DIR}/DLL/id_dx8d.dll"
+            "${CMAKE_SOURCE_DIR}/DLL/memd.dll"
+            "${CMAKE_SOURCE_DIR}/DLL/sd_dx8d.dll"
+            "${PROJECT_SOURCE_DIR}/deadjustice.prop"
+            $<TARGET_FILE_DIR:deadjustice>)
+
+add_custom_command(TARGET deadjustice POST_BUILD
+        COMMAND 
+        ${CMAKE_COMMAND} -E copy_directory_if_different
+            "${CMAKE_SOURCE_DIR}/data"
+            "$<TARGET_FILE_DIR:deadjustice>/data")
