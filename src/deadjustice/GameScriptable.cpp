@@ -611,8 +611,7 @@ int GameScriptable::script_addNonLinearTextureAnimation( VM* vm, const char* fun
 		anim->frameCtrl->setKeyValue( i-1, &frame, 1 );
 	}
 
-	const P(TextureAnimation) PsrcAnim = getTextureAnimation( vm, funcName, 2 );
-	if ( anim != PsrcAnim )
+	if ( anim != srcAnim )
 		m_texAnims.add( anim );
 	return 0;
 }
