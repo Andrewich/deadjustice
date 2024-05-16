@@ -66,12 +66,10 @@ target_link_libraries(deadjustice lang win util io math bsp anim dev libjpeg pix
 
 add_custom_command(TARGET deadjustice POST_BUILD
         COMMAND 
-        ${CMAKE_COMMAND} -E copy_if_different
-            "${CMAKE_SOURCE_DIR}/DLL/d3dx9d.dll"
-            "${CMAKE_SOURCE_DIR}/DLL/gd_dx9d.dll"
-            "${CMAKE_SOURCE_DIR}/DLL/id_dx8d.dll"
-            "${CMAKE_SOURCE_DIR}/DLL/memd.dll"
-            "${CMAKE_SOURCE_DIR}/DLL/sd_dx8d.dll"
+        ${CMAKE_COMMAND} -E copy
+            $<TARGET_FILE:gd_dx9>
+            $<TARGET_FILE:id_dx8>
+            $<TARGET_FILE:sd_dx8>
             "${PROJECT_SOURCE_DIR}/deadjustice.prop"
             $<TARGET_FILE_DIR:deadjustice>)
 

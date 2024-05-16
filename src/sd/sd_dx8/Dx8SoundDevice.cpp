@@ -235,7 +235,7 @@ int Dx8SoundDevice::createPrimaryBuffer( int channels, int samplesPerSec, int bi
 
 	// set primary buffer format
 	WAVEFORMATEX fmt;
-	memset( &fmt, 0, sizeof(desc) );
+	memset( &fmt, 0, sizeof(fmt) );
 	fmt.wFormatTag      = WAVE_FORMAT_PCM; 
 	fmt.nChannels       = (WORD)channels; 
 	fmt.nSamplesPerSec  = samplesPerSec; 
