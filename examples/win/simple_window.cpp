@@ -12,12 +12,14 @@ int main(int argc, char* argv[])
 
 	SDL_LogSetAllPriority(SDL_LOG_PRIORITY_DEBUG);
 
-	Window wnd;
-	wnd.create("simple_window", 0, 0, 640, 480, WindowFlag::shown);
+	Window* wnd = new Window();
+	wnd->create("simple_window", 0, 0, 640, 480, WindowFlag::shown);
 
-	while (wnd.flushWindowMessages()) {
+	while (wnd->flushWindowMessages()) {
 
 	}
+
+	delete wnd;
 
 	SDL_Quit();
 
