@@ -1,3 +1,4 @@
+#include <SDL2/SDL.h>
 #include "GameWindow.h"
 #include <util/ExProperties.h>
 #include "build.h"
@@ -32,7 +33,7 @@ using namespace crypt;
 
 //-----------------------------------------------------------------------------
 
-static void run( HINSTANCE inst )
+static void run( )
 {
 	char							wndTitle[256]	= "";
 	P(GameWindow)					wnd				= 0;
@@ -89,17 +90,21 @@ static void run( HINSTANCE inst )
 		}
 
 		if ( cfg->getBoolean("Game.ControllerWarning") )
-			MessageBox( 0, "This demo has been designed to work with\n- mouse and keyboard \n- Playstation 2 controller with EMS2 adapter\n  (controller name: 4 axis 16 button joystick)\n\nPlease remove any other attached joysticks, thank you.", "Note About Dead Justice Demo Controller Support", MB_OK );
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Note About Dead Justice Demo Controller Support", "This demo has been designed to work with\n- mouse and keyboard \n- Playstation 2 controller with EMS2 adapter\n  (controller name: 4 axis 16 button joystick)\n\nPlease remove any other attached joysticks, thank you.", nullptr);
+
+		if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+			throw Exception(Format("Error of SDL2 subsystems initialization."));
+		}
 
 		// create main window
 		wnd = new GameWindow( arch, cfg );
-		wnd->init( wndTitle, inst );
+		wnd->init( wndTitle );
 
 		// primary main loop
 		bool firstUpdate = true;
 		bool wasActive = true;
 		long prevTime = System::currentTimeMillis();
-		while ( Window::flushWindowMessages() )
+		while ( wnd->flushWindowMessages() )
 		{
 			// time elapsed from last update
 			long curTime = System::currentTimeMillis();
@@ -154,26 +159,20 @@ static void run( HINSTANCE inst )
 		if ( wnd )
 			wnd->deinit();
 
-		// minimize window so that it doesn't overlap message box
-		HWND hwnd = (wnd ? wnd->handle() : 0);
-		ShowCursor( TRUE );
-		if ( hwnd )
-			MoveWindow( hwnd, 0, 0, 4, 4, TRUE );
-
-		// show error message
+		// show error message		
 		char msgText[2560];
 		char msgTitle[256];
 		sprintf( msgTitle, "%s - Error", wndTitle );
 		e.getMessage().format().getBytes( msgText, sizeof(msgText), "ASCII-7" );
-		MessageBox( hwnd, msgText, msgTitle, MB_OK|MB_ICONERROR );
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, msgTitle, msgText, nullptr);
 	}
 }
 
 //-----------------------------------------------------------------------------
 
-int WINAPI WinMain( HINSTANCE inst, HINSTANCE, LPSTR /*cmdLine*/, int /*cmdShow*/ )
+int main(int argc, char* argv[])
 {
-	run( inst );
+	run();
 	mem_printAllocatedBlocks();
 	return 0;
 }

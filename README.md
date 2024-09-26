@@ -34,7 +34,8 @@ www.opensource.org)
 Build
 -----
 ```
-cmake -S . -B build/ -G "Visual Studio 16 2019" -A Win32
+conan install . --output-folder=build -s build_type=Debug -s arch=x86 --build=missing
+cmake -S . -B build/ -G "Visual Studio 16 2019" -DCMAKE_TOOLCHAIN_FILE="build/conan_toolchain.cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES -A Win32
 cmake --build build/ --config Debug
 ```
 

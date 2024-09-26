@@ -12,6 +12,7 @@ namespace win
 /** 
  * Base class for application main window. 
  * @author Jani Kajala (jani.kajala@helsinki.fi)
+ * @author Maxim Egorov (abd.andrew@gmail.com)
  */
 class FrameWindow :
 	public win::Window
@@ -24,18 +25,14 @@ public:
 	~FrameWindow();
 
 	/** 
-	 * Creates the main window. 
-	 * @param className Type of the window to be created.
-	 * @param name Title of the window to be created.
-	 * @param w Width (in pixels) of the window to be created.
-	 * @param h Height (in pixels) of the window to be created.
+	 * Creates the main window.
+	 * @param title Title of the window to be created.
+	 * @param width Width (in pixels) of the window to be created.
+	 * @param height Height (in pixels) of the window to be created.
 	 * @param popup If true then create borderless topmost popup window.
-	 * @param instance Handle to application instance.
-	 * @param iconResourceId Icon resource ID or 0 if default app icon is used.
 	 * @exception Exception
 	 */
-	void	create( const char* className, const char* name,
-				int w, int h, bool popup, HINSTANCE instance, int iconResourceId=0 );
+	void create(const char* title, int width, int height, bool popup);
 
 private:
 	FrameWindow( const FrameWindow& );

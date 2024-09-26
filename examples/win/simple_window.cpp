@@ -1,22 +1,25 @@
+#include <SDL2/SDL.h>
+
 #include <win/Window.h>
 
 using namespace win;
 
-int WINAPI WinMain(
-	_In_ HINSTANCE hInstance,
-	_In_opt_ HINSTANCE hPrevInstance,
-	_In_ LPSTR     lpCmdLine,
-	_In_ int       nCmdShow
-) {
-	Window *wnd = new Window();
+int main(int argc, char* argv[])
+{
+	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+		return 1;
+	}
 
-	wnd->create("deadjustice_win_test", "deadjustice_win_test", WS_VISIBLE | WS_OVERLAPPEDWINDOW, 0, 0, 0, 640, 480, hInstance);
+	SDL_LogSetAllPriority(SDL_LOG_PRIORITY_DEBUG);
 
-	while (Window::flushWindowMessages()) {
+	Window wnd;
+	wnd.create("simple_window", 0, 0, 640, 480, WindowFlag::shown);
+
+	while (wnd.flushWindowMessages()) {
 
 	}
 
-	wnd->destroy();
+	SDL_Quit();
 
 	return 0;
 }

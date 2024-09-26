@@ -49,7 +49,7 @@ public:
 	~GameWindow();
 
 	/** Called before main loop. */
-	void		init( const char* wndTitle, HINSTANCE inst );
+	void		init( const char* title );
 
 	/** Called after main loop. */
 	void		deinit();
@@ -66,7 +66,6 @@ public:
 	/** Called after each update(). */
 	void		render();
 
-	LRESULT		handleMessage( HWND hwnd, UINT msg, WPARAM wp, LPARAM lp );
 	void		handleKeyDown( int key );
 
 	/** Returns music manager. Valid only after init(). */

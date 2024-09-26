@@ -3,7 +3,7 @@
 
 
 /** Build number for Dead Justice. */
-#define BUILD_NUMBER 65
+#define BUILD_NUMBER 66
 
 
 void printBuildInfo();

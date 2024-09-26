@@ -1,3 +1,4 @@
+#include <SDL2/SDL_keycode.h>
 #include "GameWindow.h"
 #include "Game.h"
 #include "GameCamera.h"
@@ -59,7 +60,7 @@ GameWindow::~GameWindow()
 {
 }
 
-void GameWindow::init( const char* wndTitle, HINSTANCE inst ) 
+void GameWindow::init( const char* title ) 
 {
 	// create the window
 	int		width			= m_cfg->getInteger("Display.Width");
@@ -67,7 +68,7 @@ void GameWindow::init( const char* wndTitle, HINSTANCE inst )
 	int		bitsPerPixel	= m_cfg->getInteger("Display.BitsPerPixel");
 	int		refreshRate		= m_cfg->getInteger("Display.RefreshRate");
 
-	create("wc.deadjustice.catmother", wndTitle, width, height, false, inst, IDI_ICON1);
+	create(title, width, height, false);
 
 	// set default settings which should not be saved
 	m_cfg->setBoolean( "Game.Pause", false );
@@ -231,11 +232,6 @@ void GameWindow::render()
 	}
 }
 
-LRESULT GameWindow::handleMessage( HWND hwnd, UINT msg, WPARAM wp, LPARAM lp ) 
-{
-	return FrameWindow::handleMessage( hwnd, msg, wp, lp );
-}
-
 void GameWindow::handleKeyDown( int key ) 
 {
 	if ( m_game )
@@ -244,17 +240,17 @@ void GameWindow::handleKeyDown( int key )
 		{
 			switch ( key )
 			{
-			case VK_F8:			m_game->setArcBallCameraEnabled( !m_game->arcBallCameraEnabled() ); break;
-			case 'I':			m_game->setInvulnerable(); break;
+			case SDLK_F8:			m_game->setArcBallCameraEnabled( !m_game->arcBallCameraEnabled() ); break;
+			case SDLK_i:			m_game->setInvulnerable(); break;
 			}
 		}
 
 		switch ( key )
 		{
-		case 'T':			m_cfg->setBoolean( "Game.SlowMotion", !m_cfg->getBoolean("Game.SlowMotion") ); break;
-		case VK_F11:		recompile(); m_game->skipNoticeScreen(); break;
-		case VK_ESCAPE:		m_quit=true; break;
-		case VK_SPACE:		if (m_game->level()) m_game->level()->skipCutScene(); break;
+		case SDLK_t:			m_cfg->setBoolean( "Game.SlowMotion", !m_cfg->getBoolean("Game.SlowMotion") ); break;
+		case SDLK_F11:		recompile(); m_game->skipNoticeScreen(); break;
+		case SDLK_ESCAPE:		m_quit=true; break;
+		case SDLK_SPACE:		if (m_game->level()) m_game->level()->skipCutScene(); break;
 		}
 
 		// developer keys
@@ -262,22 +258,22 @@ void GameWindow::handleKeyDown( int key )
 		{
 			switch ( key )
 			{
-			case VK_F1:			m_game->selectActiveCamera(0); break;
-			case VK_F2:			m_game->selectActiveCamera(1); break;
-			case VK_F3:			m_game->selectActiveCamera(2); break;
-			case VK_F4:			m_game->selectActiveCamera(3); break;
-			case VK_F5:			m_game->selectActiveCamera(4); break;
-			case VK_F6:			m_game->selectActiveCamera(5); break;
-			case VK_F7:			if ( GetKeyState(VK_SHIFT) < 0 )
+			case SDLK_F1:			m_game->selectActiveCamera(0); break;
+			case SDLK_F2:			m_game->selectActiveCamera(1); break;
+			case SDLK_F3:			m_game->selectActiveCamera(2); break;
+			case SDLK_F4:			m_game->selectActiveCamera(3); break;
+			case SDLK_F5:			m_game->selectActiveCamera(4); break;
+			case SDLK_F6:			m_game->selectActiveCamera(5); break;
+			case SDLK_F7:			if ( (SDL_GetModState() & KMOD_SHIFT) != KMOD_NONE )
 									m_cfg->setBoolean( "Debug.ManualFrameAdvance", !m_cfg->getBoolean("Debug.ManualFrameAdvance") );
 								else
 									if ( m_game->activeCamera() ) m_game->activeCamera()->printPrimitives(); 
 								break;
-			case VK_F8:			m_game->setArcBallCameraEnabled( m_game->arcBallCameraEnabled() ); break;
-			case VK_F12:		m_cfg->setBoolean( "Debug.Info", !m_cfg->getBoolean("Debug.Info") ); break;
-			case 'F':			m_cfg->setBoolean( "Game.FlyCamera", !m_cfg->getBoolean("Game.FlyCamera") ); if ( !m_cfg->getBoolean("Game.FlyCamera") )  m_game->resetInputState(); break;
-			case VK_F9:			m_grabScreen=true; break;
-			case VK_PAUSE:		m_cfg->setBoolean( "Game.Pause", !m_cfg->getBoolean("Game.Pause") ); break;
+			case SDLK_F8:			m_game->setArcBallCameraEnabled( m_game->arcBallCameraEnabled() ); break;
+			case SDLK_F12:		m_cfg->setBoolean( "Debug.Info", !m_cfg->getBoolean("Debug.Info") ); break;
+			case SDLK_f:			m_cfg->setBoolean( "Game.FlyCamera", !m_cfg->getBoolean("Game.FlyCamera") ); if ( !m_cfg->getBoolean("Game.FlyCamera") )  m_game->resetInputState(); break;
+			case SDLK_F9:			m_grabScreen=true; break;
+			case SDLK_PAUSE:		m_cfg->setBoolean( "Game.Pause", !m_cfg->getBoolean("Game.Pause") ); break;
 			}
 		}
 	}
@@ -286,7 +282,7 @@ void GameWindow::handleKeyDown( int key )
 #ifdef _DEBUG
 	switch ( key )
 	{
-		case VK_F8:				printMemoryState(); break;
+		case SDLK_F8:				printMemoryState(); break;
 	}
 #endif
 }

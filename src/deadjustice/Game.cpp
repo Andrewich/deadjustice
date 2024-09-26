@@ -68,6 +68,11 @@
 #include <algorithm>
 #include "config.h"
 
+#ifndef _WINDOWS_
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#endif
+
 //-----------------------------------------------------------------------------
 
 #define TRACE() /*Debug::println( "{0}({1})", __FILE__, __LINE__ )*/

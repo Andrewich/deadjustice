@@ -1,92 +1,96 @@
 #ifndef _WINDOW_H
 #define _WINDOW_H
 
-
+#include <SDL2/SDL_events.h>
+#include <SDL2/SDL_video.h>
 #include <lang/Object.h>
 
-#ifndef _WINDOWS_
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#endif
 
 
 namespace win
 {
 
+	/**
+	* Simple wrapper over SDL_WINDOW flags
+	* @author Maxim Egorov (abd.andrew@gmail.com)
+	*/
+	enum class WindowFlag {
+		fullscreen = SDL_WINDOW_FULLSCREEN,
+		shown = SDL_WINDOW_SHOWN,
+		hidden = SDL_WINDOW_HIDDEN,
+		borderless = SDL_WINDOW_BORDERLESS,
+		resizable = SDL_WINDOW_RESIZABLE,
+		minimized = SDL_WINDOW_MINIMIZED,
+		maximized = SDL_WINDOW_MAXIMIZED,
+		mouse_grabbed = SDL_WINDOW_MOUSE_GRABBED,
+		keyboard_grabbed = SDL_WINDOW_KEYBOARD_GRABBED,
+		popup_menu = SDL_WINDOW_POPUP_MENU,
+		always_on_top = SDL_WINDOW_ALWAYS_ON_TOP
+	};
 
-/** 
- * Simple wrapper of Win32 window handle. 
- * @author Jani Kajala (jani.kajala@helsinki.fi)
- */
-class Window :
-	public lang::Object
-{
-public:
-	/** 
-	 * Prepares for window creation. 
-	 * Use create() to initialize the window. 
+	WindowFlag operator|(WindowFlag lhs, WindowFlag rhs);
+	WindowFlag operator&(WindowFlag lhs, WindowFlag rhs);
+
+
+	/**
+	 * Simple wrapper of SDL2 window.
+	 * @author Jani Kajala (jani.kajala@helsinki.fi)
+	 * @author Maxim Egorov (abd.andrew@gmail.com)
 	 */
-	Window();
+	class Window :
+		public lang::Object
+	{
+	public:
+		/**
+		 * Prepares for window creation.
+		 * Use create() to initialize the window.
+		 */
+		Window();
 
-	/** Destroys the window if not already destroyed. */
-	virtual ~Window();
+		/** Destroys the window if not already destroyed. */
+		virtual ~Window();
 
-	/** 
-	 * Creates the window. 
-	 * @param className Type of the window to be created.
-	 * @param name Title of the window to be created.
-	 * @param width Width (in pixels) of the window to be created.
-	 * @param height Height (in pixels) of the window to be created.
-	 * @param style Style flags for the window.
-	 * @param exStyle Extended style flags for the window.
-	 * @param x X-coordinate of the top-left corner.
-	 * @param y Y-coordinate of the top-left corner.
-	 * @param w Width of the window (in pixels).
-	 * @param h Height of the window (in pixels).
-	 * @param instance Handle to application instance.
-	 * @param parent Parent window if any.
-	 * @param iconResourceId Icon resource ID or 0 if default app icon is used.
-	 * @exception Exception
-	 */
-	void	create( const char* className, const char* name, 
-				DWORD style, DWORD exStyle, int x, int y, int w, int h, 
-				HINSTANCE instance,	Window* parent=0, int iconResourceId=0 );
+		/**
+		 * Creates the window.
+		 * @param title Title of the window to be created.
+		 * @param x X-coordinate of the top-left corner.
+		 * @param y Y-coordinate of the top-left corner.
+		 * @param width Width of the window (in pixels).
+		 * @param height Height of the window (in pixels).
+		 * @param flags Style flags for the window (WindowFlag enum class variants).
+		 * @exception Exception
+		 *
+		 */
+		void create(const char* title, int x, int y, int width, int height, WindowFlag flags);
 
-	/** Destroys the window. */
-	void	destroy();
+		/** Destroys the window. */
+		void	destroy();
 
-	/** Returns Win32 window handle. */
-	HWND	handle();
+		/** Called by default handleMessage() to handle key down events. */
+		virtual void handleKeyDown(int key);
 
-	/** 
-	 * Called when window message arrives. 
-	 * If the application doesn't handle the message,
-	 * it should call implementation of the base class.
-	 */
-	virtual LRESULT		handleMessage( HWND hwnd, UINT msg, WPARAM wp, LPARAM lp );
+		/** Called by default handleMessage() to handle key up events. */
+		virtual void handleKeyUp(int key);
 
-	/** Called by default handleMessage() to handle key down events. */
-	virtual void		handleKeyDown( int key );
+		/** Returns true if the window is active. */
+		bool active() const;
 
-	/** Called by default handleMessage() to handle key up events. */
-	virtual void		handleKeyUp( int key );
+		/**
+		 * Flushes window message queue.
+		 * @return false if application quit was requested.
+		 */
+		bool flushWindowMessages();
 
-	/** Returns true if the window is active. */
-	bool				active() const;
+	protected:
+		virtual void handleMessage(SDL_Event& event);
 
-	/** 
-	 * Flushes window message queue. 
-	 * @return false if application quit was requested.
-	 */
-	static bool			flushWindowMessages();
+	private:
+		SDL_Window* m_window;
+		bool	m_active;
 
-private:
-	HWND	m_hwnd;
-	bool	m_active;
-
-	Window( const Window& );
-	Window& operator=( const Window& );
-};
+		Window(const Window&);
+		Window& operator=(const Window&);
+	};
 
 
 } // win
