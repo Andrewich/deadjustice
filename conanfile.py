@@ -8,6 +8,8 @@ class DeadJusticeRecipe(ConanFile):
 
     def requirements(self):
         self.requires("sdl/2.30.7")
+        self.requires("bimg/cci.20230114")
+        self.requires("fmt/11.0.2")
 
     def generate(self):
         tc = CMakeToolchain(self)

@@ -53,3 +53,4 @@ add_subdirectory(src/deadjustice)
 
 # Examples
 add_subdirectory(examples/win)
+add_subdirectory(examples/pix)
