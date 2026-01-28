@@ -60,6 +60,7 @@ private:
 	char*					m_err;
 	int						m_params;
 	bool					m_sortPolygons;
+	bool					m_passActive;  // track if a pass is currently active
 
 	void	setError( const char* str );
 

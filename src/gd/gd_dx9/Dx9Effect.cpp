@@ -19,7 +19,7 @@ using namespace math;
 //-----------------------------------------------------------------------------
 
 Dx9Effect::Dx9Effect() :
-	m_refs(0), m_dev(0), m_vf(), m_d3dfvf(0), m_fx(0), m_err(0), m_params(0), m_sortPolygons(false)
+	m_refs(0), m_dev(0), m_vf(), m_d3dfvf(0), m_fx(0), m_err(0), m_params(0), m_sortPolygons(false), m_passActive(false)
 {
 }
 
@@ -28,7 +28,7 @@ Dx9Effect::~Dx9Effect()
 	destroy();
 }
 
-void Dx9Effect::destroy() 
+void Dx9Effect::destroy()
 {
 	destroyDeviceObject();
 
@@ -47,6 +47,7 @@ void Dx9Effect::destroy()
 	m_vf = gd::VertexFormat();
 	m_dev = 0;
 	m_params = 0;
+	m_passActive = false;
 }
 
 void Dx9Effect::duplicate( const gd::Effect* other )
@@ -81,6 +82,8 @@ void Dx9Effect::release()
 int Dx9Effect::create( gd::GraphicsDevice* device, const void* data, int size ) 
 {
 	assert( device );
+
+	LPD3DXBUFFER errorBuffer;
 
 	destroy();
 
@@ -268,19 +271,41 @@ void Dx9Effect::begin( gd::GraphicsDevice* /*dev*/, int* passes )
 	*passes = passcount;
 }
 
-void Dx9Effect::apply( int pass ) 
+void Dx9Effect::apply( int pass )
 {
 	assert( m_fx );
 
+	// End previous pass if one is active
+	if ( m_passActive )
+	{
+		HRESULT hr = m_fx->EndPass();
+		if ( hr != D3D_OK )
+			error( "Dx9Effect.apply() EndPass failed: %s", toString(hr) );
+		m_passActive = false;
+	}
+
+	// Begin new pass
 	HRESULT hr = m_fx->BeginPass( pass );
 	if ( hr != D3D_OK )
-		error( "Dx9Effect.end() failed: %s", toString(hr) );
+		error( "Dx9Effect.apply() BeginPass failed: %s", toString(hr) );
+	else
+		m_passActive = true;
 }
 
-void Dx9Effect::end() 
+void Dx9Effect::end()
 {
 	assert( m_fx );
 
+	// End current pass if one is active
+	if ( m_passActive )
+	{
+		HRESULT hr = m_fx->EndPass();
+		if ( hr != D3D_OK )
+			error( "Dx9Effect.end() EndPass failed: %s", toString(hr) );
+		m_passActive = false;
+	}
+
+	// End the effect
 	HRESULT hr = m_fx->End();
 	if ( hr != D3D_OK )
 		error( "Dx9Effect.end() failed: %s", toString(hr) );
