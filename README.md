@@ -34,7 +34,8 @@ www.opensource.org)
 Build
 -----
 ```
-cmake -S . -B build/ -G "Visual Studio 16 2019" -A Win32
+set "VCPKG_ROOT=C:\path\to\vcpkg"
+cmake -S . -B build/ -A Win32 --preset vcpkg
 cmake --build build/ --config Debug
 ```
 

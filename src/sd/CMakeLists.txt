@@ -25,4 +25,4 @@ target_sources(sd_dx8
     sd_dx8/toDx8.cpp
     sd_dx8/toString.cpp)
 
-target_link_libraries(sd_dx8 ${DSound_LIBRARIES} math)
+target_link_libraries(sd_dx8 dsound dxguid math)

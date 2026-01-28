@@ -9,8 +9,6 @@ project(
     LANGUAGES CXX
 )
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
-
 set(CMAKE_DEBUG_POSTFIX d)
 
 if (MSVC)    
@@ -24,7 +22,7 @@ add_subdirectory(external/lua)
 
 include_directories(src src/config/msvc6)
 
-find_package(DirectX9)
+find_package(dxsdk-d3dx CONFIG REQUIRED)
 
 add_subdirectory(src/mem)
 add_subdirectory(src/lang)

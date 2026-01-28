@@ -23,4 +23,4 @@ target_sources(id_dx8
         id_dx8/StdAfx.cpp
         id_dx8/toString.cpp)
 
-target_link_libraries(id_dx8 ${DInput_LIBRARIES})
+target_link_libraries(id_dx8 dinput8 dxguid)

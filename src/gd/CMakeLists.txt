@@ -35,4 +35,4 @@ target_sources(gd_dx9
         gd_dx9/toDx9.cpp
         gd_dx9/toString.cpp)
 
-target_link_libraries(gd_dx9 ${DirectX9_LIBRARIES} lang pix math)
+target_link_libraries(gd_dx9 PRIVATE d3d9.lib Microsoft::D3DX9 lang pix math)
